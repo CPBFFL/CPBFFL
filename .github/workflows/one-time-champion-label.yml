@@ -22,17 +22,17 @@ jobs:
           const fs=require('fs');
           const path='index.html';
           let content=fs.readFileSync(path,'utf8');
-          const oldText=`     const badges=(autoGotw.badges||[]).slice(0,3).join("  •  ");
-             sub.innerHTML=\`<strong>\${weekLabel(week)} • MARQUEE MATCHUP</strong>\${badges?\`<br>\${esc(badges)}\`:""}<br><span>\${esc(autoGotw.reasons?.[0]||"Featured CPBFFL matchup")}</span>\`;`;
-          const newText=`     const badges=(autoGotw.badges||[]).slice(0,3).join("  •  ");
+          const marker='     const badges=(autoGotw.badges||[]).slice(0,3).join("  •  ");';
+          const addition=`
              const owners=[g.a.owner,g.b.owner];
              const championLine=week===1 && owners.includes("Brian Corrigan") && owners.includes("Erik Mannarino")
                ? '🏆 2025 Champion vs. 2022 “Kind of” Champion'
-               : "";
-             sub.innerHTML=\`<strong>\${weekLabel(week)} • MARQUEE MATCHUP</strong>\${championLine?\`<br><strong>\${esc(championLine)}</strong>\`:""}\${badges?\`<br>\${esc(badges)}\`:""}<br><span>\${esc(autoGotw.reasons?.[0]||"Featured CPBFFL matchup")}</span>\`;`;
-          const matches=content.split(oldText).length-1;
-          if(matches!==1) throw new Error('Expected one marquee block; found '+matches);
-          content=content.replace(oldText,newText);
+               : "";`;
+          const oldFragment='<strong>\${weekLabel(week)} • MARQUEE MATCHUP</strong>\${badges?';
+          const newFragment='<strong>\${weekLabel(week)} • MARQUEE MATCHUP</strong>\${championLine?\`<br><strong>\${esc(championLine)}</strong>\`:""}\${badges?';
+          if(content.split(marker).length-1!==1) throw new Error('Marquee badge marker was not unique.');
+          if(content.split(oldFragment).length-1!==1) throw new Error('Marquee HTML marker was not unique.');
+          content=content.replace(marker,marker+addition).replace(oldFragment,newFragment);
           fs.writeFileSync(path,content);
           NODE
           git config user.name "CPBFFL Publisher"
