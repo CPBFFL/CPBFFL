@@ -1,0 +1,88 @@
+name: One-time corrected homepage rivalry patch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/one-time-homepage-rivalry.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Correct history and wire homepage cards
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const path='index.html';
+          let content=fs.readFileSync(path,'utf8');
+
+          const historyMatch=content.match(/const CPBFFL_H2H = (\{[^\n]*\});/);
+          if(!historyMatch) throw new Error('CPBFFL H2H data was not found.');
+          const h2h=JSON.parse(historyMatch[1]);
+          const empty={wins:0,losses:0,pct:0,games:0,season:{},longestWin:0,longestLoss:0,currentType:"",currentLen:0,seasonUnassignedWins:0,seasonUnassignedLosses:0,seasonOverWins:0,seasonOverLosses:0};
+          h2h["Matt Rennert|Michael Clark"]={...empty};
+          h2h["Michael Clark|Matt Rennert"]={...empty};
+          content=content.replace(historyMatch[0],'const CPBFFL_H2H = '+JSON.stringify(h2h)+';');
+
+          const oldRivalrySpan='<span>Driven by H2H closeness and current streaks.</span>';
+          const newRivalrySpan='<span id="homeLiveRivalrySub">Driven by valid H2H closeness and current streaks.</span>';
+          if(content.split(oldRivalrySpan).length-1!==1) throw new Error('Homepage rivalry subtitle was not unique.');
+          content=content.replace(oldRivalrySpan,newRivalrySpan);
+
+          const oldBridge=`   updateHomeGOTW(week,games);
+           }`;
+          const newBridge=`   updateHomeGOTW(week,games);
+             window.LAST_PREDICTION_GAMES=games.map(g=>({
+               id:String(g.id),
+               ownerA:g.a.owner,
+               ownerB:g.b.owner,
+               rankA:getPowerRank(g.a.owner),
+               rankB:getPowerRank(g.b.owner),
+               sameDivision:Boolean(g.a.division && g.a.division===g.b.division),
+               gotwReason:String(autoGotw?.reasons?.[0]||"Featured CPBFFL matchup")
+             }));
+             document.dispatchEvent(new CustomEvent("cpbffl-predictions-rendered"));
+           }`;
+          if(content.split(oldBridge).length-1!==1) throw new Error('Prediction bridge insertion point was not unique.');
+          content=content.replace(oldBridge,newBridge);
+
+          const oldPick='    const pick=window.CPBFFL_GOTW?.chooseGOTW(games);';
+          const newPick=`    const publishedGotwId=window.CPBFFL_SHARED_DATA?.predictions?.["1"]?.gotw;
+              const forcedGame=games.find(g=>String(g.id)===String(publishedGotwId));
+              const pick=forcedGame
+                ? {game:forcedGame,reasons:[forcedGame.gotwReason||"Featured CPBFFL matchup"],score:999}
+                : window.CPBFFL_GOTW?.chooseGOTW(games);`;
+          if(content.split(oldPick).length-1!==1) throw new Error('This Week GOTW selection point was not unique.');
+          content=content.replace(oldPick,newPick);
+
+          const oldRival=`        const hr=document.getElementById("homeLiveRivalry");
+                  if(hr) hr.textContent=\`\${rival.g.ownerA} vs \${rival.g.ownerB}\`;`;
+          const newRival=`        const hr=document.getElementById("homeLiveRivalry");
+                  if(hr) hr.textContent=\`\${rival.g.ownerA} vs \${rival.g.ownerB}\`;
+                  const hrs=document.getElementById("homeLiveRivalrySub");
+                  const hh=h2h(rival.g.ownerA,rival.g.ownerB);
+                  if(hrs && hh){
+                    const leader=hh.wins===hh.losses
+                      ? "Series tied"
+                      : hh.wins>hh.losses
+                        ? \`\${rival.g.ownerA} leads \${hh.wins}-\${hh.losses}\`
+                        : \`\${rival.g.ownerB} leads \${hh.losses}-\${hh.wins}\`;
+                    hrs.textContent=\`\${leader} through \${hh.games} meetings.\`;
+                  }`;
+          if(content.split(oldRival).length-1!==1) throw new Error('Homepage rivalry render point was not unique.');
+          content=content.replace(oldRival,newRival);
+
+          fs.writeFileSync(path,content);
+          NODE
+          git config user.name "CPBFFL Publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          git commit -m "Correct Week 1 homepage matchup cards"
+          git push
