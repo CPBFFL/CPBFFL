@@ -4622,7 +4622,11 @@ document.addEventListener('DOMContentLoaded', function(){
    if(g){
      title.textContent=`${g.a.owner} vs ${g.b.owner}`;
      const badges=(autoGotw.badges||[]).slice(0,3).join("  •  ");
-     sub.innerHTML=`<strong>${weekLabel(week)} • MARQUEE MATCHUP</strong>${badges?`<br>${esc(badges)}`:""}<br><span>${esc(autoGotw.reasons?.[0]||"Featured CPBFFL matchup")}</span>`;
+   const owners=[g.a.owner,g.b.owner];
+   const championLine=week===1 && owners.includes("Brian Corrigan") && owners.includes("Erik Mannarino")
+     ? '🏆 2025 Champion vs. 2022 “Kind of” Champion'
+     : "";
+     sub.innerHTML=`<strong>${weekLabel(week)} • MARQUEE MATCHUP</strong>${championLine?`<br><strong>${esc(championLine)}</strong>`:""}${badges?`<br>${esc(badges)}`:""}<br><span>${esc(autoGotw.reasons?.[0]||"Featured CPBFFL matchup")}</span>`;
      box.classList.add("gotw-live");
    }else{
      box.classList.remove("gotw-live");
