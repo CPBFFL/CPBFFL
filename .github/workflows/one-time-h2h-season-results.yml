@@ -1,0 +1,92 @@
+name: One-time H2H season result correction
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/one-time-h2h-season-results.yml"
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Correct H2H season mapping and results
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path("index.html")
+          s=p.read_text()
+          old='''    const years = Object.keys(d.season).map(Number).sort((x,y)=>x-y);
+    const seasonRows = years.map(y => {
+      const v = d.season[String(y)];
+
+      // Historical season breakdown was imported from the opposite perspective.
+      // Swap it so these columns always match the LEFT owner selected above.
+      const leftWins = Number(v.w || 0);
+      const leftLosses = Number(v.l || 0);
+      const totalGames = leftWins + leftLosses;
+
+      let resultLabel = "";
+      let cls = "h2h-even";
+
+      if (leftWins === leftLosses && totalGames > 0) {
+        resultLabel = `Split season matchup ${leftWins}-${leftLosses}`;
+        cls = "h2h-even";
+      } else if (leftWins > leftLosses) {
+        resultLabel = `Won season matchup ${leftWins}-${leftLosses}`;
+        cls = "h2h-win";
+      } else if (leftLosses > leftWins) {
+        resultLabel = `Lost season matchup ${leftWins}-${leftLosses}`;
+        cls = "h2h-loss";
+      }
+
+      return `<tr><td>${y}</td><td>${leftWins}</td><td>${leftLosses}</td><td class="${cls}">${resultLabel}</td></tr>`;
+    }).join('');'''
+          new='''    // Spreadsheet source columns are paired as D/E=2010, F/G=2011,
+    // H/I=2012, etc. Show every season in which both owners were active.
+    const activeSeasons = {
+      "Sam Young":[2010,2025], "Paul Deutsch":[2013,2025],
+      "Matt Rennert":[2025,2025], "Shawn Smutak":[2010,2025],
+      "Tony Yokiel":[2010,2025], "John DeBrouse":[2017,2025],
+      "Michael Clark":[2013,2022], "Reid Masters":[2023,2025],
+      "Brian Corrigan":[2013,2025], "Jake Stacy":[2012,2025],
+      "Steve Cegelka":[2019,2025], "Erik Mannarino":[2013,2025]
+    };
+    const firstSeason = Math.max(activeSeasons[a][0], activeSeasons[b][0]);
+    const lastSeason = Math.min(activeSeasons[a][1], activeSeasons[b][1]);
+    const years = firstSeason <= lastSeason
+      ? Array.from({length:lastSeason-firstSeason+1},(_,i)=>firstSeason+i)
+      : [];
+    const seasonRows = years.map(y => {
+      // Original import labeled the D/E source pair one season early.
+      // Matt's 2025-only records were subsequently entered with the correct key.
+      const sourceYear = (a === "Matt Rennert" || b === "Matt Rennert") ? y : y - 1;
+      const v = d.season[String(sourceYear)] || {w:0,l:0};
+      const leftWins = Number(v.w || 0);
+      const leftLosses = Number(v.l || 0);
+      const totalGames = leftWins + leftLosses;
+
+      let resultLabel = `No season matchup ${leftWins}-${leftLosses}`;
+      let cls = "h2h-even";
+      if (leftWins === leftLosses && totalGames > 0) {
+        resultLabel = `Split season matchup ${leftWins}-${leftLosses}`;
+      } else if (leftWins > leftLosses) {
+        resultLabel = `Won season matchup ${leftWins}-${leftLosses}`;
+        cls = "h2h-win";
+      } else if (leftLosses > leftWins) {
+        resultLabel = `Lost season matchup ${leftWins}-${leftLosses}`;
+        cls = "h2h-loss";
+      }
+      return `<tr><td>${y}</td><td>${leftWins}</td><td>${leftLosses}</td><td class="${cls}">${resultLabel}</td></tr>`;
+    }).join('');'''
+          if old not in s:
+              raise SystemExit("Target H2H season block not found")
+          p.write_text(s.replace(old,new,1))
+      - name: Commit correction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Correct H2H season results and active years"
+          git push
