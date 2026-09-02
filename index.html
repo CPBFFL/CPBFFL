@@ -4348,9 +4348,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
  function getPowerRank(owner){
    const pr = window.CPBFFL_POWER_RANKINGS;
-   if(!Array.isArray(pr)) return null;
-   const found = pr.find(x=>norm(x.owner)===norm(owner));
-   return found ? Number(found.rank) : null;
+   if(Array.isArray(pr)){
+     const found = pr.find(x=>norm(x.owner)===norm(owner));
+     if(found) return Number(found.rank);
+   }
+   const preseasonRanks={
+     "Matt Rennert":1,"Erik Mannarino":2,"Brian Corrigan":3,"Reid Masters":4,
+     "Jake Stacy":5,"Shawn Smutak":6,"Paul Deutsch":7,"Michael Clark":8,
+     "Tony Yokiel":9,"Steve Cegelka":10,"John DeBrouse":11,"Sam Young":12
+   };
+   const entry=Object.entries(preseasonRanks).find(([name])=>norm(name)===norm(owner));
+   return entry ? entry[1] : null;
  }
 
  function historicalRivalryScore(aOwner,bOwner){
@@ -4489,7 +4497,8 @@ document.addEventListener('DOMContentLoaded', function(){
      return {game:g,score,reasons,badges,ar,br,rivalry,streak,records:{a:arx,b:brx}};
    }).sort((a,b)=>b.score-a.score);
 
-   const best=scored[0];
+   const publishedGotwId=window.CPBFFL_SHARED_DATA?.predictions?.[String(week)]?.gotw;
+   const best=scored.find(x=>String(x.game.id)===String(publishedGotwId)) || scored[0];
    if(!best || best.score<=0) return null;
 
    const reason=best.reasons.length
