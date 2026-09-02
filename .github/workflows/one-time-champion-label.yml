@@ -1,0 +1,42 @@
+name: One-time champion label patch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/one-time-champion-label.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add champion label
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const path='index.html';
+          let content=fs.readFileSync(path,'utf8');
+          const oldText=`     const badges=(autoGotw.badges||[]).slice(0,3).join("  •  ");
+             sub.innerHTML=\`<strong>\${weekLabel(week)} • MARQUEE MATCHUP</strong>\${badges?\`<br>\${esc(badges)}\`:""}<br><span>\${esc(autoGotw.reasons?.[0]||"Featured CPBFFL matchup")}</span>\`;`;
+          const newText=`     const badges=(autoGotw.badges||[]).slice(0,3).join("  •  ");
+             const owners=[g.a.owner,g.b.owner];
+             const championLine=week===1 && owners.includes("Brian Corrigan") && owners.includes("Erik Mannarino")
+               ? '🏆 2025 Champion vs. 2022 “Kind of” Champion'
+               : "";
+             sub.innerHTML=\`<strong>\${weekLabel(week)} • MARQUEE MATCHUP</strong>\${championLine?\`<br><strong>\${esc(championLine)}</strong>\`:""}\${badges?\`<br>\${esc(badges)}\`:""}<br><span>\${esc(autoGotw.reasons?.[0]||"Featured CPBFFL matchup")}</span>\`;`;
+          const matches=content.split(oldText).length-1;
+          if(matches!==1) throw new Error('Expected one marquee block; found '+matches);
+          content=content.replace(oldText,newText);
+          fs.writeFileSync(path,content);
+          NODE
+          git config user.name "CPBFFL Publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          git commit -m "Add champions context to Week 1 marquee"
+          git push
