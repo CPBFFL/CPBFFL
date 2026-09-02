@@ -1,7 +1,11 @@
 {
-  "version": 6,
+  "version": 7,
   "season": 2026,
-  "icymi": {},
+  "icymi": {
+    "1": {
+      "notes": "Check back after Week 1 has concluded for the first ICYMI recap of the 2026 season."
+    }
+  },
   "predictions": {
     "1": {
       "gotw": "5",
@@ -16,5 +20,5 @@
       "notes": "WEEK 1 PREDICTIONS\n\nThe schedule is finally out, which means it is time for everyone to overreact to projections, defend their shitty draft and explain why the lineup Sleeper hates is actually filled with “league winners.”\n\nTHE BYE WEEK VS. TEAM 3 — Pick: Tony Yokiel. Sleeper has Tony favored by roughly three points. Tony has Hurts, Puka and Kittle. Steve has Derrick Henry, Bucky Irving, JSN and three tight ends because apparently he prepared for a format nobody else is playing. Steve leads the historical series 7-5, but that only gives him something to bring up after Tony beats him.\n\nVRABELS LLC VS. TEAM SPEAKSOONSTAYLUCKY — Pick: Matt Rennert. Sleeper gives Matt a narrow two-point advantage. Mike has Josh Allen, Christian McCaffrey and Kyren Williams—as long as McCaffrey’s body does not spontaneously combust during warmups. Matt has Gibbs, Bowers, Garrett Wilson and Brian Thomas Jr., along with the deeper lineup. Matt leads the historical series 8-7, meaning Mike has had several years to figure him out and apparently still has not.\n\nTBD VS. MCGIBBLETS MUNCHKIN GUILD — Upset Pick: Jake Stacy. Sleeper favors John by approximately one point. Congratulations, John. The computer finally believes in you. Unfortunately, I do not. CeeDee Lamb and Drake London can carry a lineup, but Jake has Lamar, Achane, A.J. Brown, Mike Evans and LaPorta. Jake leads the historical series 6-5, which is simply proof that John has already had eleven opportunities to disappoint against him.\n\nINJURYAPOLIS COLTS VS. YOURDADD — Pick: Reid Masters. Sleeper favors Reid by approximately seven points. The power rankings favor Reid. The rosters favor Reid. Common sense favors Reid. Reid also owns a 3-0 historical record against Sam. That does not count toward the prediction, but it does make this even funnier. The former final boss apparently cannot beat the guy who joined the league and immediately ignored everyone’s seniority.\n\nGAME OF THE WEEK — COMMISSIONER STILL SUCKS VS. SUNDAY CRUISERS — Pick: Erik Mannarino. The defending champion and #3 team faces the league’s #2 team in a Central Division heavyweight fight. Sleeper projects an almost perfect toss-up, with Erik ahead by roughly 0.2 points. Brian brings Amon-Ra, Malik Nabers, Ashton Jeanty and Quinshon Judkins. Erik answers with Burrow, Jonathan Taylor, Saquon Barkley and Trey McBride. Brian leads the historical series 10-7, but Erik has the safer Week 1 lineup and gets the slightest edge.\n\nLITTLE DOWNIES VS. TEAM DEUTSCH4988 — Pick: Paul Deutsch. Sleeper favors Paul by approximately ten points. I would love to explain why the computer is wrong, why Jayden Daniels and Justin Jefferson erase the difference and why my rookie running backs immediately become unstoppable. I would also love to win a championship someday. Paul has Chase, Nico Collins and Zay Flowers. Jaxson Dart could still destroy the entire operation, but the projected margin is too large to ignore. Paul leads the historical series 11-5 because apparently ruining my week is one of the few things he has consistently managed to accomplish."
     }
   },
-  "publishedAt": "2026-09-02T06:09:06.511Z"
+  "publishedAt": "2026-09-02T06:15:28.551Z"
 }
