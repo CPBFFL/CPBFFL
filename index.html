@@ -198,15 +198,17 @@
 .home-champion-feature{background:var(--panel-2);border:1px solid var(--line);border-radius:22px;padding:30px;text-align:center}
 .home-champion-badge{display:inline-block;font-size:11px;font-weight:950;letter-spacing:.13em;padding:7px 12px;border:1px solid rgba(255,215,0,.3);border-radius:999px;margin-bottom:10px}
 .home-champion-name{font-size:40px;font-weight:950;letter-spacing:-.04em}
-.home-feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.home-feature-card{background:var(--panel-2);border:1px solid var(--line);border-radius:18px;padding:18px}
+.home-feature-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:start;gap:14px}
+.home-feature-card{min-width:0;background:var(--panel-2);border:1px solid var(--line);border-radius:18px;padding:18px}
 .home-feature-title{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px}
 .home-feature-value{font-size:28px;font-weight:950;letter-spacing:-.03em}
 .home-feature-sub{font-size:13px;color:var(--muted);margin-top:4px}
-.home-club-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line)}
+.home-club-row{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;padding:9px 0;border-bottom:1px solid var(--line)}
 .home-club-row:last-child{border-bottom:0}
 .home-club-row span{font-weight:800}
-.home-club-row strong{white-space:nowrap}
+.home-club-row strong{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:1480px){.home-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1000px){.home-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:800px){.home-feature-grid{grid-template-columns:1fr}.home-champion-name{font-size:34px}}
 
 
