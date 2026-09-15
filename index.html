@@ -2861,6 +2861,7 @@ John changed his team name after getting smoked."></textarea>
 <th class="sortable" data-type="number" scope="col">Win %</th>
 <th class="sortable" data-type="record" scope="col">Best Season</th>
 <th class="sortable" data-type="number" scope="col">Points For</th>
+<th class="sortable" data-type="number" scope="col">Points Against</th>
 <th class="sortable" data-type="number" scope="col">PPG</th>
 <th class="sortable" data-type="number" scope="col">Playoffs</th>
 <th class="sortable" data-type="number" scope="col">Runner-Up</th>
@@ -3170,6 +3171,22 @@ function renderFranchise(index) {
   document.getElementById('frRunner2').textContent = f.runner_up;
   document.getElementById('frTitles2').textContent = f.championships;
   document.getElementById('frVP2').textContent = f.victory_points;
+  // Franchise Records and All-Time Records must use the same updated data.
+  renderAllTimeCareerTable();
+}
+
+function renderAllTimeCareerTable(){
+  const owners=new Map(franchiseData.map(f=>[f.owner,f]));
+  document.querySelectorAll('.career-table tbody tr').forEach(row=>{
+    const f=owners.get(row.cells[0]?.textContent.trim());
+    if(!f || row.cells.length<7) return;
+    row.cells[2].textContent=`${f.wins}-${f.losses}`;
+    row.cells[3].textContent=f.win_pct;
+    row.cells[5].textContent=f.points_for;
+    if(row.cells.length===11) row.insertCell(6);
+    row.cells[6].textContent=f.points_against;
+    row.cells[7].textContent=f.avg_ppg;
+  });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -4179,18 +4196,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function updateCareerRecordsDisplay(){
     const byOwner=new Map(franchiseData.map(f=>[f.owner,f]));
-    const table=document.querySelector("#career-records .career-table");
-    if(table){
-      [...table.tBodies[0].rows].forEach(row=>{
-        const owner=row.cells[0]?.textContent.trim();
-        const f=byOwner.get(owner);
-        if(!f || row.cells.length<7) return;
-        row.cells[2].textContent=`${f.wins}-${f.losses}`;
-        row.cells[3].textContent=f.win_pct;
-        row.cells[5].textContent=f.points_for;
-        row.cells[6].textContent=f.avg_ppg;
-      });
-    }
+    renderAllTimeCareerTable();
 
     // These summaries also cite career totals; keep them in step with the table.
     const leader=[...franchiseData].sort((a,b)=>b.wins-a.wins)[0];
