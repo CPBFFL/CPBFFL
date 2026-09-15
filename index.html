@@ -889,7 +889,7 @@ header,.topbar {
 .pr-score strong{font-size:25px;color:#fff}
 .pr-score span{display:block;font-size:10px;color:var(--muted);text-transform:uppercase}
 .pr-move{font-size:12px;font-weight:950;margin-top:5px}
-.pr-move.up{color:#5dd39e}.pr-move.down{color:#ff7a73}.pr-move.same{color:var(--muted)}
+.pr-move.up{color:#ff5959}.pr-move.down{color:#70a9ff}.pr-move.same{color:var(--muted)}
 .pr-breakdown{border-top:1px solid rgba(255,255,255,.08);padding:12px 16px 15px}
 .pr-breakdown summary{cursor:pointer;color:#ff8a50;font-size:12px;font-weight:900;user-select:none}
 .pr-components{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
@@ -2683,9 +2683,9 @@ John changed his team name after getting smoked."></textarea>
 <div class="panel pr-live-panel">
 <div class="section-head">
 <div>
-<div class="pr-eyebrow">2026 • LIVE SLEEPER ENGINE</div>
+<div class="pr-eyebrow">2026 • COMMISSIONER'S RANKINGS + LIVE SLEEPER STATS</div>
 <h2>CPBFFL Power Rankings</h2>
-<p>Your custom power-ranking formula, calculated from Sleeper data. Lowest score = strongest team.</p>
+<p>The published rankings above set the order. Records and weekly points update from Sleeper.</p>
 </div>
 <button class="btn primary" id="prRefreshBtn" type="button">Refresh Sleeper</button>
 </div>
@@ -2708,14 +2708,13 @@ John changed his team name after getting smoked."></textarea>
 <div class="pr-summary-grid">
 <div class="pr-summary-card"><span>Ranking Week</span><strong id="prWeekLabel">—</strong></div>
 <div class="pr-summary-card"><span>Teams Connected</span><strong id="prTeamCount">—</strong></div>
-<div class="pr-summary-card"><span>Top Power Score</span><strong id="prTopScore">—</strong></div>
+<div class="pr-summary-card"><span>Ranked #1</span><strong id="prTopScore">—</strong></div>
 <div class="pr-summary-card"><span>Last Updated</span><strong id="prUpdated">—</strong></div>
 </div>
 <div class="pr-key">
-<span><b>Score:</b> C–L total</span>
-<span><b>▲/▼:</b> movement vs previous week</span>
-<span><b>Lowest score:</b> #1</span>
-<span><b>Ties:</b> competition ranking</span>
+<span><b>Order:</b> commissioner's published rankings</span>
+<span><b>▲ red / ▼ blue:</b> movement from the previous ranking</span>
+<span><b>PF and record:</b> live Sleeper stats</span>
 </div>
 <div class="pr-ranking-list" id="prRankingList"></div>
 </div>
@@ -3674,55 +3673,61 @@ document.addEventListener('DOMContentLoaded', function(){
     return `<div class="pr-move same">—</div>`;
   }
 
-  function renderRankings(current, previousMap, week){
+  function publishedRankings(){
+    const article=document.querySelector("#power-rankings .pr-editorial:not([hidden])");
+    if(!article) return null;
+    const weekMatch=article.querySelector(".pr-editorial-header .pr-eyebrow")?.textContent.match(/Week\s+(\d+)/i);
+    const entries=[...article.querySelectorAll(".pr-editorial-entry")].map(entry=>{
+      const owner=entry.querySelector(".pr-editorial-owner")?.textContent.trim();
+      const rank=Number(entry.querySelector(".pr-editorial-rank")?.textContent.trim());
+      const heading=entry.querySelector("h3");
+      const movement=heading?.querySelector(".pr-weekly-move");
+      return {
+        owner,rank,
+        movement:movement?.textContent.trim() || "",
+        movementClass:movement?.classList.contains("up") ? "up" : movement?.classList.contains("down") ? "down" : "same",
+        icon:heading?.textContent.includes("🔥") ? "🔥" : heading?.textContent.includes("🧊") ? "🧊" : "",
+        description:entry.querySelector("p")?.textContent.trim() || ""
+      };
+    });
+    if(!weekMatch || entries.length!==12 || new Set(entries.map(e=>e.rank)).size!==12) return null;
+    return {week:Number(weekMatch[1]),entries};
+  }
+
+  function renderRankings(current, previousMap, week, published){
     const list=$("prRankingList");
     const sorted=[...current].sort((a,b)=>a.newRank-b.newRank || a.powerScore-b.powerScore || a.owner.localeCompare(b.owner));
     list.innerHTML=sorted.map(t=>{
       const prev=previousMap ? previousMap.get(t.rosterId) : null;
-      const ap=`${t.allPlayWins}-${t.allPlayLosses}${t.allPlayTies ? "-"+t.allPlayTies : ""}`;
       const rec=`${t.wins}-${t.losses}${t.ties ? "-"+t.ties : ""}`;
+      const movement=t.publishedEntry
+        ? `<div class="pr-move ${t.publishedEntry.movementClass}">${escapeHtml(t.publishedEntry.movement)}</div>`
+        : movementHtml(t.newRank,prev);
       return `<div class="pr-rank-card">
         <div class="pr-rank-main">
           <div>
             <div class="pr-rank-num">#${t.newRank}</div>
-            ${movementHtml(t.newRank,prev)}
+            ${movement}
           </div>
           <div>
-            <div class="pr-owner">${escapeHtml(t.owner)}</div>
+            <div class="pr-owner">${escapeHtml(t.owner)} ${t.publishedEntry?.icon || ""}</div>
             <div class="pr-team-name">${escapeHtml(t.teamName)} • @${escapeHtml(t.sleeperUsername)}</div>
             <div class="pr-division-tag">${t.division}</div>
           </div>
           <div class="pr-metric pr-hide-md"><span>Record</span><strong>${rec}</strong></div>
           <div class="pr-metric pr-hide-md"><span>Week ${week}</span><strong>${fmt(t.weekPF)} PF</strong></div>
-          <div class="pr-score"><strong>${t.powerScore}</strong><span>Power Score</span></div>
+          <div class="pr-score"><strong>${fmt(t.seasonPF)}</strong><span>Season PF</span></div>
         </div>
         <details class="pr-breakdown">
           <summary>Why is ${escapeHtml(t.owner)} ranked #${t.newRank}?</summary>
-          <div class="pr-components">
-            <div class="pr-component"><span>Win</span><strong>${t.cWin}</strong></div>
-            <div class="pr-component"><span>Loss</span><strong>${t.dLoss}</strong></div>
-            <div class="pr-component"><span>Week PF Rank</span><strong>${t.eWeekPF}</strong></div>
-            <div class="pr-component"><span>Week PA Rank</span><strong>${t.fWeekPA}</strong></div>
-            <div class="pr-component"><span>Season PF Rank</span><strong>${t.gSeasonPF}</strong></div>
-            <div class="pr-component"><span>Season PA Rank</span><strong>${t.hSeasonPA}</strong></div>
-            <div class="pr-component"><span>Overall Rank</span><strong>${t.iOverall}</strong></div>
-            <div class="pr-component"><span>Division Rank</span><strong>${t.jDivision}</strong></div>
-            <div class="pr-component"><span>All-Play Rank</span><strong>${t.kAllPlay}</strong></div>
-            <div class="pr-component"><span>Streak</span><strong>${t.streak.label} (${t.streak.score})</strong></div>
-          </div>
-          <div class="pr-key" style="margin-top:12px">
-            <span>Season PF: <b>${fmt(t.seasonPF)}</b></span>
-            <span>Season PA: <b>${fmt(t.seasonPA)}</b></span>
-            <span>All-Play: <b>${ap}</b></span>
-            <span>Week PA: <b>${fmt(t.weekPA)}</b></span>
-          </div>
+          <p>${escapeHtml(t.publishedEntry?.description || "These are provisional Sleeper model rankings until the commissioner publishes the next editorial.")}</p>
         </details>
       </div>`;
     }).join("");
 
-    $("prWeekLabel").textContent="Week "+week;
+    $("prWeekLabel").textContent=published ? "Week "+published.week : "Provisional";
     $("prTeamCount").textContent=current.length+"/12";
-    $("prTopScore").textContent=sorted.length ? sorted[0].powerScore : "—";
+    $("prTopScore").textContent=sorted.length ? sorted[0].owner.split(" ")[0] : "—";
     $("prUpdated").textContent=new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});
   }
 
@@ -3810,13 +3815,24 @@ document.addEventListener('DOMContentLoaded', function(){
 
       const current=buildMetrics(connected,weeklyRows,completedWeek);
       let previousMap=null;
-      if(completedWeek>1){
+      const published=publishedRankings();
+      if(published){
+        const normalizeOwner=name=>String(name||"").toLowerCase().replace(/\bmichael\b/g,"mike").replace(/[^a-z]/g,"");
+        const byOwner=new Map(published.entries.map(entry=>[normalizeOwner(entry.owner),entry]));
+        current.forEach(team=>{
+          const entry=byOwner.get(normalizeOwner(team.owner));
+          if(entry){team.newRank=entry.rank;team.publishedEntry=entry;}
+        });
+        if(current.some(team=>!team.publishedEntry)){
+          throw new Error("Published ranking owner could not be matched to a Sleeper roster. Rankings were not shown to avoid conflicting orders.");
+        }
+      }else if(completedWeek>1){
         const prev=buildMetrics(connected,weeklyRows,completedWeek-1);
         previousMap=new Map(prev.map(t=>[t.rosterId,t.newRank]));
       }
 
       wrap.hidden=false;
-      renderRankings(current,previousMap,completedWeek);
+      renderRankings(current,previousMap,completedWeek,published);
       window.CPBFFL_POWER_RANKINGS = [...current]
         .sort((a,b)=>a.newRank-b.newRank || a.powerScore-b.powerScore)
         .map(t=>({
