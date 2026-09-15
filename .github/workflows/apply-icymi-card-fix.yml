@@ -1,0 +1,23 @@
+name: Apply published ICYMI card fix
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-icymi-card-fix.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Patch exact ICYMI renderer
+        run: node scripts/patch-published-icymi.js
+      - name: Commit homepage change
+        run: |
+          git config user.name "CPBFFL Publish Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Show published ICYMI in six matchup cards"
+          git push
