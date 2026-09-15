@@ -4227,10 +4227,43 @@ document.addEventListener('DOMContentLoaded', function(){
       else if(title.includes("Almost Dynasty") && shawn)
         detail.textContent=`Shawn has ${shawn.wins} career wins and four runner-up finishes, but no championship. A ${shawn.win_pct} win rate and ${shawn.points_for} career points show sustained contention; the missing title is the gap in the résumé.`;
     });
-    document.querySelectorAll(".home-club-row").forEach(row=>{
-      const f=byOwner.get(row.querySelector("span")?.textContent.trim());
-      const total=row.querySelector("strong");
-      if(f && total) total.textContent=f.points_for;
+    const careerPoints=f=>parseNum(f.points_for);
+    const featureCards=[...document.querySelectorAll("#home .home-feature-card")];
+    const leaderByPoints=[...franchiseData].sort((a,b)=>careerPoints(b)-careerPoints(a))[0];
+    featureCards.forEach(card=>{
+      const title=card.querySelector(".home-feature-title")?.textContent.trim();
+      if(title==="Most Points Scored" && leaderByPoints){
+        card.querySelector(".home-feature-value").textContent=leaderByPoints.owner;
+        card.querySelector(".home-feature-sub").textContent=`${leaderByPoints.points_for} career points`;
+        return;
+      }
+      let members=[],metric;
+      if(title==="100 Win Club"){
+        members=franchiseData.filter(f=>Number(f.wins)>=100)
+          .sort((a,b)=>b.wins-a.wins || a.owner.localeCompare(b.owner));
+        metric=f=>`${f.wins} wins`;
+      }else if(title==="10 Year Club"){
+        members=franchiseData.filter(f=>Number(f.years)>=10)
+          .sort((a,b)=>b.years-a.years || a.owner.localeCompare(b.owner));
+        metric=f=>`${f.years} years`;
+      }else if(title==="20K Points Scored Club"){
+        members=franchiseData.filter(f=>careerPoints(f)>=20000)
+          .sort((a,b)=>careerPoints(b)-careerPoints(a));
+        metric=f=>f.points_for;
+      }else if(title==="10K Points Scored Club"){
+        members=franchiseData.filter(f=>careerPoints(f)>=10000 && careerPoints(f)<20000)
+          .sort((a,b)=>careerPoints(b)-careerPoints(a));
+        metric=f=>f.points_for;
+      }else return;
+      card.querySelectorAll(".home-club-row").forEach(row=>row.remove());
+      members.forEach(f=>{
+        const row=document.createElement("div"),owner=document.createElement("span"),total=document.createElement("strong");
+        row.className="home-club-row";
+        owner.textContent=f.owner;
+        total.textContent=metric(f);
+        row.append(owner,total);
+        card.appendChild(row);
+      });
     });
   }
 
