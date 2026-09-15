@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - scripts/fix-live-career-table.js
+      - scripts/fix-home-record-clubs.js
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,8 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Apply verified index patch
-        run: node scripts/fix-live-career-table.js
+      - name: Apply verified index patches
+        run: |
+          node scripts/fix-live-career-table.js
+          node scripts/fix-home-record-clubs.js
       - name: Commit only the homepage fix
         run: |
           git diff --check
@@ -20,5 +23,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Sync All-Time Records with live franchise totals"
-          git push origin HEAD:refs/heads/career-sync-fix
+          git commit -m "Show live wins, points and years in home clubs"
+          git push origin HEAD:refs/heads/home-record-clubs-fix
