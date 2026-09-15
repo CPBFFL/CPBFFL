@@ -1,0 +1,15 @@
+const fs=require('node:fs');
+const {execFileSync}=require('node:child_process');
+const path='index.html';
+const before='ff5232ecbb53070565c22ab65ff100ac903a70d2';
+const after='29fdad0c1567ddfb328d9e68a23482dfd98aa5f5';
+const sha=()=>execFileSync('git',['hash-object',path],{encoding:'utf8'}).trim();
+if(sha()===after)process.exit(0);
+if(sha()!==before)throw new Error('Unexpected homepage version; no file changed');
+const from="    document.querySelectorAll(\".home-club-row\").forEach(row=>{\n      const f=byOwner.get(row.querySelector(\"span\")?.textContent.trim());\n      const total=row.querySelector(\"strong\");\n      if(f && total) total.textContent=f.points_for;\n    });";
+const to="    const careerPoints=f=>parseNum(f.points_for);\n    const featureCards=[...document.querySelectorAll(\"#home .home-feature-card\")];\n    const leaderByPoints=[...franchiseData].sort((a,b)=>careerPoints(b)-careerPoints(a))[0];\n    featureCards.forEach(card=>{\n      const title=card.querySelector(\".home-feature-title\")?.textContent.trim();\n      if(title===\"Most Points Scored\" && leaderByPoints){\n        card.querySelector(\".home-feature-value\").textContent=leaderByPoints.owner;\n        card.querySelector(\".home-feature-sub\").textContent=`${leaderByPoints.points_for} career points`;\n        return;\n      }\n      let members=[],metric;\n      if(title===\"100 Win Club\"){\n        members=franchiseData.filter(f=>Number(f.wins)>=100)\n          .sort((a,b)=>b.wins-a.wins || a.owner.localeCompare(b.owner));\n        metric=f=>`${f.wins} wins`;\n      }else if(title===\"10 Year Club\"){\n        members=franchiseData.filter(f=>Number(f.years)>=10)\n          .sort((a,b)=>b.years-a.years || a.owner.localeCompare(b.owner));\n        metric=f=>`${f.years} years`;\n      }else if(title===\"20K Points Scored Club\"){\n        members=franchiseData.filter(f=>careerPoints(f)>=20000)\n          .sort((a,b)=>careerPoints(b)-careerPoints(a));\n        metric=f=>f.points_for;\n      }else if(title===\"10K Points Scored Club\"){\n        members=franchiseData.filter(f=>careerPoints(f)>=10000 && careerPoints(f)<20000)\n          .sort((a,b)=>careerPoints(b)-careerPoints(a));\n        metric=f=>f.points_for;\n      }else return;\n      card.querySelectorAll(\".home-club-row\").forEach(row=>row.remove());\n      members.forEach(f=>{\n        const row=document.createElement(\"div\"),owner=document.createElement(\"span\"),total=document.createElement(\"strong\");\n        row.className=\"home-club-row\";\n        owner.textContent=f.owner;\n        total.textContent=metric(f);\n        row.append(owner,total);\n        card.appendChild(row);\n      });\n    });";
+const page=fs.readFileSync(path,'utf8');
+if(page.split(from).length!==2)throw new Error('Expected club block not unique');
+const updated=page.replace(from,to);
+fs.writeFileSync(path,updated);
+if(sha()!==after)throw new Error('Generated homepage differs from verified fix');
