@@ -1,0 +1,24 @@
+name: Apply live career table fix
+on:
+  push:
+    paths:
+      - scripts/fix-live-career-table.js
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply verified index patch
+        run: node scripts/fix-live-career-table.js
+      - name: Commit only the homepage fix
+        run: |
+          git diff --check
+          if git diff --quiet -- index.html; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Sync All-Time Records with live franchise totals"
+          git push origin HEAD:refs/heads/career-sync-fix
