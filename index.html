@@ -4174,6 +4174,58 @@ document.addEventListener('DOMContentLoaded', function(){
 
     const sel=document.getElementById("franchiseSelect");
     if(sel && typeof renderFranchise==="function") renderFranchise(sel.value||0);
+    updateCareerRecordsDisplay();
+  }
+
+  function updateCareerRecordsDisplay(){
+    const byOwner=new Map(franchiseData.map(f=>[f.owner,f]));
+    const table=document.querySelector("#career-records .career-table");
+    if(table){
+      [...table.tBodies[0].rows].forEach(row=>{
+        const owner=row.cells[0]?.textContent.trim();
+        const f=byOwner.get(owner);
+        if(!f || row.cells.length<7) return;
+        row.cells[2].textContent=`${f.wins}-${f.losses}`;
+        row.cells[3].textContent=f.win_pct;
+        row.cells[5].textContent=f.points_for;
+        row.cells[6].textContent=f.avg_ppg;
+      });
+    }
+
+    // These summaries also cite career totals; keep them in step with the table.
+    const leader=[...franchiseData].sort((a,b)=>b.wins-a.wins)[0];
+    const leaderCard=[...document.querySelectorAll("#records .stat-card")]
+      .find(card=>card.querySelector(".label")?.textContent.trim()==="Career Wins Leader");
+    if(leaderCard && leader){
+      leaderCard.querySelector(".big").textContent=leader.wins;
+      leaderCard.querySelector(".sub").textContent=`${leader.owner} • ${leader.win_pct} win rate`;
+    }
+    document.querySelectorAll("#legacy .legacy-card").forEach(card=>{
+      const f=byOwner.get(card.querySelector(".legacy-name")?.textContent.trim());
+      const meta=card.querySelector(".meta");
+      if(f && meta) meta.textContent=`${f.victory_points} Victory Points • ${f.championships} titles • ${f.win_pct} career`;
+    });
+    const sam=byOwner.get("Sam Young"),tony=byOwner.get("Tony Yokiel"),reid=byOwner.get("Reid Masters"),brian=byOwner.get("Brian Corrigan"),shawn=byOwner.get("Shawn Smutak");
+    document.querySelectorAll("#legacy .analysis-box").forEach(box=>{
+      const title=box.querySelector("strong")?.textContent || "";
+      const detail=box.querySelector("span");
+      if(!detail) return;
+      if(title.includes("Co-Legacy Leaders") && sam && tony)
+        detail.textContent=`Tony and Sam share the league lead with 13 Victory Points. Tony owns 3 championships and the only three-peat in league history; Sam has ${sam.wins} career wins and a ${sam.win_pct} career win rate.`;
+      else if(title.includes("Regular-Season Standard") && sam)
+        detail.textContent=`Sam leads the long-tenured group with ${sam.wins} career wins, a ${sam.win_pct} win rate, ${sam.points_for} points scored and a ${sam.point_diff} point differential.`;
+      else if(title.includes("Best Short-Run Pace") && reid)
+        detail.textContent=`Reid's ${reid.win_pct} win rate and ${reid.avg_ppg} points per game are the best marks on this table, plus a championship in only four seasons. The sample is much shorter than the all-time leaders.`;
+      else if(title.includes("Closest Challenger") && brian)
+        detail.textContent=`Brian has 2 championships, ${brian.wins} wins and a ${brian.win_pct} career win rate. His titles and sustained winning put him in the top historical tier.`;
+      else if(title.includes("Almost Dynasty") && shawn)
+        detail.textContent=`Shawn has ${shawn.wins} career wins and four runner-up finishes, but no championship. A ${shawn.win_pct} win rate and ${shawn.points_for} career points show sustained contention; the missing title is the gap in the résumé.`;
+    });
+    document.querySelectorAll(".home-club-row").forEach(row=>{
+      const f=byOwner.get(row.querySelector("span")?.textContent.trim());
+      const total=row.querySelector("strong");
+      if(f && total) total.textContent=f.points_for;
+    });
   }
 
   function ensureH2HRecord(ownerA,ownerB){
