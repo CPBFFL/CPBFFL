@@ -2333,7 +2333,7 @@ img, svg, canvas { max-width: 100%; }
 <header class="topbar">
 <div class="brand"><div class="brand-mark">CP</div>CPBFFL</div>
 <div class="search"><span>⌕</span><input aria-autocomplete="list" aria-controls="ownerSearchResults" aria-label="Search owner…" autocomplete="off" id="ownerSearchInput" placeholder="Search owner…"/><div aria-label="Owner search results" aria-live="polite" class="owner-search-results" id="ownerSearchResults" role="listbox"></div></div>
-<div class="nav-actions"><button class="btn">League History</button><button class="btn primary">Week 1</button></div>
+<div class="nav-actions"><button class="btn">League History</button><button class="btn primary" id="currentWeekBadge">Week 1</button></div>
 </header>
 <nav aria-label="Mobile navigation" class="mobile-nav">
 <button aria-controls="mobileNavMenu" aria-expanded="false" class="mobile-nav-toggle" id="mobileNavToggle" type="button">
@@ -4464,9 +4464,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
  function teamName(user,fallback){return user?.metadata?.team_name||user?.metadata?.team_name_update||fallback}
- function currentNFLWeek(league){
-   const w=Number(league?.settings?.leg||league?.settings?.last_scored_leg||1);
-   return Math.max(1,Math.min(17,w||1));
+ function currentNFLWeek(now=new Date()){
+   // The commissioner week rolls over every Wednesday at 4 a.m. Eastern,
+   // regardless of when Sleeper advances its league leg.
+   const parts=Object.fromEntries(new Intl.DateTimeFormat("en-US",{
+     timeZone:"America/New_York",year:"numeric",month:"numeric",day:"numeric",
+     hour:"numeric",minute:"numeric",hourCycle:"h23"
+   }).formatToParts(now).filter(p=>p.type!=="literal").map(p=>[p.type,Number(p.value)]));
+   const easternWallTime=Date.UTC(parts.year,parts.month-1,parts.day,parts.hour,parts.minute);
+   const firstWednesday=Date.UTC(2026,8,9,4);
+   const w=Math.floor((easternWallTime-firstWednesday)/(7*24*60*60*1000))+1;
+   return Math.max(1,Math.min(17,w));
  }
 
  function weekLabel(week){
@@ -4710,6 +4718,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
      root.innerHTML=`<div class="prediction-empty"><strong>Schedule not available yet.</strong><br><br>This is expected before the draft. As soon as Sleeper creates or changes the schedule, refresh this page and the new matchups will appear automatically.</div>`;
      updateHomeGOTW(week,[]);
+     window.LAST_PREDICTION_GAMES=[];
+     window.LAST_PREDICTION_WEEK=week;
+     window.LAST_PREDICTION_GOTW_ID=null;
+     document.dispatchEvent(new CustomEvent("cpbffl-predictions-rendered"));
      return;
    }
    const autoGotw = chooseAutomaticGOTW(games,week,rosters);
@@ -4765,6 +4777,8 @@ document.addEventListener('DOMContentLoaded', function(){
      sameDivision:Boolean(g.a.division && g.a.division===g.b.division),
      gotwReason:String(autoGotw?.reasons?.[0]||"Featured CPBFFL matchup")
    }));
+   window.LAST_PREDICTION_WEEK=week;
+   window.LAST_PREDICTION_GOTW_ID=gotw;
    document.dispatchEvent(new CustomEvent("cpbffl-predictions-rendered"));
  }
  function updateHomeGOTW(week,games){
@@ -4787,16 +4801,24 @@ document.addEventListener('DOMContentLoaded', function(){
      sub.textContent=games.length?`Choose the ${weekLabel(week)} featured matchup on Predictions.`:"Featured matchup will appear when the Sleeper schedule is available.";
    }
  }
+ let manuallySelectedWeek=false;
+ let lastCalendarWeek=currentNFLWeek();
+ function updateWeekBadge(){
+   const badge=document.getElementById("currentWeekBadge");
+   if(badge) badge.textContent=`Week ${currentNFLWeek()}`;
+ }
  async function sync(){
   const status=document.getElementById("predictionStatus"),err=document.getElementById("predictionError");
+  updateWeekBadge();
   try{
    const [league,users,rosters]=await Promise.all([get(`/league/${LEAGUE_ID}`),get(`/league/${LEAGUE_ID}/users`),get(`/league/${LEAGUE_ID}/rosters`)]);
    const sel=document.getElementById("predictionWeek");
-   const week=Number(sel?.value)||currentNFLWeek(league);
+   const week=manuallySelectedWeek ? Number(sel?.value)||currentNFLWeek() : currentNFLWeek();
    fillWeeks(week);
    loadPredictionAmmo(week);
    await loadWeek(week,league,users,rosters);
    sel.onchange=()=>{
+     manuallySelectedWeek=true;
      const w=Number(sel.value);
      loadPredictionAmmo(w);
      loadWeek(w,league,users,rosters);
@@ -4815,7 +4837,18 @@ document.addEventListener('DOMContentLoaded', function(){
    if(err){err.hidden=false;err.textContent=e.message||String(e)}
   }
  }
- document.getElementById("predRefreshBtn")?.addEventListener("click",sync);
+ document.getElementById("predRefreshBtn")?.addEventListener("click",()=>{
+   manuallySelectedWeek=false;
+   sync();
+ });
+ setInterval(()=>{
+   const week=currentNFLWeek();
+   if(week!==lastCalendarWeek){
+     lastCalendarWeek=week;
+     updateWeekBadge();
+     if(!manuallySelectedWeek) sync();
+   }
+ },10000);
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",sync);else sync();
 })();
 </script>
@@ -5729,6 +5762,14 @@ window.addEventListener("cpbffl-shared-data-ready", function(){
 
     if(!games.length){
       wrap.innerHTML='<div class="tw-empty">Waiting for Sleeper to publish the weekly matchup slate.</div>';
+      const title=document.getElementById("twGotwTitle");
+      if(title) title.textContent="Game of the Week";
+      const reason=document.getElementById("twGotwReason");
+      if(reason) reason.textContent="Waiting for the weekly matchup slate.";
+      const homeTitle=document.getElementById("homeLiveGotw");
+      if(homeTitle) homeTitle.textContent="Game of the Week";
+      const homeReason=document.getElementById("homeLiveGotwSub");
+      if(homeReason) homeReason.textContent="Waiting for the weekly matchup slate.";
       return;
     }
 
@@ -5750,8 +5791,8 @@ window.addEventListener("cpbffl-shared-data-ready", function(){
       </div>`;
     }).join("");
 
-    const publishedGotwId=window.CPBFFL_SHARED_DATA?.predictions?.["1"]?.gotw;
-    const forcedGame=games.find(g=>String(g.id)===String(publishedGotwId));
+    const selectedGotwId=window.LAST_PREDICTION_GOTW_ID;
+    const forcedGame=games.find(g=>String(g.id)===String(selectedGotwId));
     const pick=forcedGame
       ? {game:forcedGame,reasons:[forcedGame.gotwReason||"Featured CPBFFL matchup"],score:999}
       : window.CPBFFL_GOTW?.chooseGOTW(games);
