@@ -2886,7 +2886,7 @@ John changed his team name after getting smoked."></textarea>
 </section>
 </div>
 <div class="page-view" id="records">
-<section class="section"><div class="history-panel" id="historicalRecordsPanel"><h3>🏛️ The CPBFFL Record Book</h3><p>Verified ESPN regular-season totals, 2012–2025. Season scoring rules and schedule lengths changed, so points per game offers another way to compare eras.</p><div id="historicalRecordBoards" aria-live="polite">Loading ESPN season records…</div></div></section>
+<section class="section"><div class="history-panel" id="historicalRecordsPanel"><h3>🏛️ The CPBFFL Record Book</h3><p>ESPN season totals from 2012–2025, plus completed Sleeper weeks from 2026 onward. Season records enter after the regular season finishes; scoring rules and schedule lengths vary by era.</p><div id="historicalRecordBoards" aria-live="polite">Loading ESPN season records…</div></div></section>
 <section class="section">
 <div class="section-head"><div><h2>League at a Glance</h2><p>Career records across the modern era.</p></div></div>
 <div class="grid-3">
@@ -6094,5 +6094,5 @@ window.addEventListener("cpbffl-shared-data-ready", function(){
     document.getElementById("historicalRecordBoards").textContent="ESPN season records are unavailable right now.";
   });
 })();
-</script></body>
+</script><script src="./scripts/live-record-book.js" defer></script></body>
 </html>
