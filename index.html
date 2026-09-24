@@ -3131,11 +3131,16 @@ John changed his team name after getting smoked."></textarea>
 </div></section></div></main></div>
 <script>
 (function(){
+  function currentPage(){
+    return decodeURIComponent(location.hash.slice(1)) || 'home';
+  }
+
   function showPage(id){
-    const target = document.getElementById(id) ? id : 'home';
+    const page = document.getElementById(id);
+    const target = page && page.classList.contains('page-view') ? id : 'home';
     document.querySelectorAll('.page-view').forEach(p => p.classList.toggle('active', p.id === target));
     document.querySelectorAll('.side-link[data-page]').forEach(a => a.classList.toggle('active', a.dataset.page === target));
-    window.scrollTo({top:0, behavior:'smooth'});
+    window.scrollTo(0, 0);
   }
 
   document.querySelectorAll('[data-page]').forEach(a => {
@@ -3156,8 +3161,11 @@ John changed his team name after getting smoked."></textarea>
     });
   });
 
-  window.addEventListener('popstate', () => showPage(location.hash.slice(1) || 'home'));
-  showPage(location.hash.slice(1) || 'home');
+  const syncPageToUrl = () => showPage(currentPage());
+  window.addEventListener('popstate', syncPageToUrl);
+  window.addEventListener('hashchange', syncPageToUrl);
+  window.addEventListener('pageshow', syncPageToUrl);
+  syncPageToUrl();
 })();
 </script>
 <script>
