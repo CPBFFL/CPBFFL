@@ -2022,17 +2022,32 @@
     {
       "label": "Highest score in a loss",
       "subject": "Welcome To The Jungle",
-      "detail": "173.18 points"
+      "detail": "173.18–187.76 vs Entertainment 720 • 2024 Week 13",
+      "year": 2024,
+      "week": 13,
+      "opponent": "Entertainment 720",
+      "opponentPoints": 187.76,
+      "source": "ESPN historical matchup scoreboard"
     },
     {
       "label": "Biggest ass-kicking",
       "subject": "Two Girls One Gup",
-      "detail": "Won by 138.64 points"
+      "detail": "205.22–66.58 vs The Bye Week • 2024 Week 11 (138.64-point win)",
+      "year": 2024,
+      "week": 11,
+      "opponent": "The Bye Week",
+      "opponentPoints": 66.58,
+      "source": "ESPN historical matchup scoreboard"
     },
     {
       "label": "Closest finish",
       "subject": "Welcome To The Jungle",
-      "detail": "Won by 0.08 points"
+      "detail": "138.26–138.18 vs Rescue Rico • 2024 Week 15 (0.08-point win)",
+      "year": 2024,
+      "week": 15,
+      "opponent": "Rescue Rico",
+      "opponentPoints": 138.18,
+      "source": "ESPN historical matchup scoreboard"
     },
     {
       "label": "Highest score left on the bench",

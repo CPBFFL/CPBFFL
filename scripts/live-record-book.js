@@ -120,9 +120,10 @@
       const historicMargin=initial['Biggest ass-kicking'];
       const historicClose=initial['Closest finish'];
       const historicBench=initial['Highest score left on the bench'];
-      const loss=biggestLoss&&biggestLoss.points>173.18?card('Highest score in a loss',biggestLoss.team,money(biggestLoss.points)+' points • '+formatEvent(biggestLoss)):card(historicLoss.label,historicLoss.subject,historicLoss.detail);
-      const margin=worstMargin&&worstMargin.margin>138.64?card('Biggest ass-kicking',worstMargin.team,'Won by '+money(worstMargin.margin)+' • '+formatEvent(worstMargin)):card(historicMargin.label,historicMargin.subject,historicMargin.detail);
-      const narrow=closest&&closest.margin<0.08?card('Closest finish',closest.team,'Won by '+money(closest.margin)+' • '+formatEvent(closest)):card(historicClose.label,historicClose.subject,historicClose.detail);
+      const scoreline=e=>money(e.points)+'–'+money(e.opponentPoints)+' vs '+e.opponent+' • '+e.year+' Week '+e.week;
+      const loss=biggestLoss&&biggestLoss.points>173.18?card('Highest score in a loss',biggestLoss.team,scoreline(biggestLoss)):card(historicLoss.label,historicLoss.subject,historicLoss.detail);
+      const margin=worstMargin&&worstMargin.margin>138.64?card('Biggest ass-kicking',worstMargin.team,scoreline(worstMargin)+' ('+money(worstMargin.margin)+'-point win)'):card(historicMargin.label,historicMargin.subject,historicMargin.detail);
+      const narrow=closest&&closest.margin<0.08?card('Closest finish',closest.team,scoreline(closest)+' ('+money(closest.margin)+'-point win)'):card(historicClose.label,historicClose.subject,historicClose.detail);
       const bench=benched&&benched.points>57.3?card('Highest score left on the bench',benched.playerName||'Player '+benched.playerId,money(benched.points)+' points • '+benched.team+' • '+benched.year+' Week '+benched.week):card(historicBench.label,historicBench.subject,historicBench.detail);
       shame.innerHTML=loss+margin+narrow+bench+
         (minWin?card('Lowest-scoring win • Sleeper era',minWin.team,money(minWin.points)+' points • '+formatEvent(minWin)):'');
