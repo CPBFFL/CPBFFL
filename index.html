@@ -2337,6 +2337,27 @@ img, svg, canvas { max-width: 100%; }
 .season-line span{color:var(--muted);font-size:12px}
 .season-line strong{text-align:right}
 .season-actions{margin-top:14px}
+.history-panel{margin:0 0 18px;padding:18px;border:1px solid #69402b;border-radius:17px;background:linear-gradient(180deg,#20140e,#140d09)}
+.history-panel h3{margin:0 0 6px;font-size:20px}
+.history-panel p{margin:0 0 15px;color:#d5c2b4;line-height:1.55}
+.history-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0}
+.history-toolbar select{padding:9px 12px;border:1px solid #854626;border-radius:9px;background:#1b110c;color:#fff;font:inherit}
+.history-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.history-highlight{padding:13px;border:1px solid #613b29;border-radius:11px;background:#160e0a}
+.history-highlight span{display:block;color:#ff944d;font-size:10px;font-weight:900;text-transform:uppercase}
+.history-highlight strong{display:block;margin-top:5px;font-size:14px}
+.history-table-wrap{overflow-x:auto}
+.history-table{width:100%;border-collapse:collapse;min-width:550px}
+.history-table th,.history-table td{padding:9px 10px;border-bottom:1px solid #493020;text-align:left;font-size:12px}
+.history-table th{color:#ffa06a;font-size:10px;text-transform:uppercase}
+.history-table td:nth-child(n+3),.history-table th:nth-child(n+3){text-align:right}
+.history-record-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.history-record-grid h3{margin:0 0 12px;color:#ff9d66}
+.history-record-grid ol{margin:0;padding-left:23px}
+.history-record-grid li{padding:8px 0;border-bottom:1px solid #4a3021;line-height:1.4}
+.history-record-grid li strong{color:#fff4e8}
+.history-record-grid li small{display:block;color:#bda99b}
+@media(max-width:700px){.history-record-grid,.history-highlights{grid-template-columns:1fr}}
 @media(max-width:980px){
   .tw-grid{grid-template-columns:1fr 1fr}
   .tw-hero-card{grid-column:1/-1}
@@ -2865,6 +2886,7 @@ John changed his team name after getting smoked."></textarea>
 </section>
 </div>
 <div class="page-view" id="records">
+<section class="section"><div class="history-panel" id="historicalRecordsPanel"><h3>🏛️ The CPBFFL Record Book</h3><p>Verified ESPN regular-season totals, 2012–2025. Season scoring rules and schedule lengths changed, so points per game offers another way to compare eras.</p><div id="historicalRecordBoards" aria-live="polite">Loading ESPN season records…</div></div></section>
 <section class="section">
 <div class="section-head"><div><h2>League at a Glance</h2><p>Career records across the modern era.</p></div></div>
 <div class="grid-3">
@@ -3025,6 +3047,7 @@ John changed his team name after getting smoked."></textarea>
 <p>Completed seasons from 2010 through 2025. Championship and Gup Cup history are tied together in one place.</p>
 </div>
 </div>
+<div class="history-panel" id="historicalSeasonPanel"><h3>Season Scoreboards • 2012–2025</h3><p>Explore verified ESPN regular-season records and team scoring alongside the league's existing champion and Gup Cup history.</p><div class="history-toolbar"><label for="historicalSeasonSelect">Season</label><select id="historicalSeasonSelect" aria-label="Choose archived ESPN season"></select></div><div id="historicalSeasonDetails" aria-live="polite">Loading season standings…</div></div>
 <div class="season-archive-grid">
 <article class="season-card">
 <div class="season-year">2025</div>
@@ -5935,7 +5958,8 @@ window.addEventListener("cpbffl-shared-data-ready", function(){
     const b=e.target.closest(".season-jump");
     if(!b) return;
     const y=b.dataset.season;
-    alert(`${y} season snapshot currently includes audited Champion and Gup Cup history. Full standings/awards can be added when season-level source data is supplied.`);
+    if(window.CPBFFL_SHOW_SEASON?.(y))return;
+    alert(y+" championship and Gup Cup history is listed here. ESPN season scoreboards currently cover 2012–2025.");
   });
 })();
 </script><script>
@@ -5999,6 +6023,76 @@ window.addEventListener("cpbffl-shared-data-ready", function(){
   }else{
     wire();
   }
+})();
+</script>
+<script>
+/* ESPN season scoreboards: separate from the league's curated championship history. */
+(function(){
+  const money=n=>Number(n).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&#039;"}[c]));
+  const seasons={};
+  const games=t=>t.wins+t.losses+t.ties;
+  const record=t=>t.wins+"–"+t.losses+(t.ties?"–"+t.ties:"");
+  function renderSeason(year){
+    const teams=seasons[year],root=document.getElementById("historicalSeasonDetails");
+    if(!teams||!root)return false;
+    document.getElementById("historicalSeasonSelect").value=year;
+    const scored=[...teams].sort((a,b)=>b.pointsFor-a.pointsFor);
+    const allowed=[...teams].sort((a,b)=>b.pointsAgainst-a.pointsAgainst);
+    const ranked=[...teams].sort((a,b)=>(b.wins+b.ties/2)/games(b)-(a.wins+a.ties/2)/games(a)||b.wins-a.wins||b.pointsFor-a.pointsFor);
+    const highlight=(label,t,value)=>'<div class="history-highlight"><span>'+label+'</span><strong>'+esc(t.teamName)+'</strong><small>'+value+'</small></div>';
+    root.innerHTML='<div class="history-highlights">'+
+      highlight("Most points scored",scored[0],money(scored[0].pointsFor)+" PF")+
+      highlight("Most points allowed",allowed[0],money(allowed[0].pointsAgainst)+" PA")+
+      highlight("Best regular-season record",ranked[0],record(ranked[0]))+
+      '</div><div class="history-table-wrap"><table class="history-table"><thead><tr><th>Rank</th><th>ESPN team name</th><th>W–L</th><th>Points for</th><th>Points against</th><th>PPG</th></tr></thead><tbody>'+
+      ranked.map((t,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(t.teamName)+'</td><td>'+record(t)+'</td><td>'+money(t.pointsFor)+'</td><td>'+money(t.pointsAgainst)+'</td><td>'+money(t.pointsFor/games(t))+'</td></tr>').join("")+
+      '</tbody></table></div>';
+    return true;
+  }
+  window.CPBFFL_SHOW_SEASON=function(year){
+    if(!renderSeason(year))return false;
+    document.getElementById("historicalSeasonPanel")?.scrollIntoView({behavior:"smooth",block:"start"});
+    return true;
+  };
+  function board(title,rows,value,unit){
+    return '<div class="history-panel"><h3>'+title+'</h3><ol>'+
+      rows.map(t=>'<li><strong>'+esc(t.teamName)+' — '+value(t)+unit+'</strong><small>'+t.year+' • '+record(t)+' regular season</small></li>').join("")+
+      '</ol></div>';
+  }
+  function suppliedBoard(title,rows,format){
+    return '<div class="history-panel"><h3>'+esc(title)+'</h3><ol>'+rows.map(t=>'<li><strong>'+esc(format(t))+'</strong><small>'+esc(t.year)+' • Week '+esc(t.week)+'</small></li>').join('')+'</ol></div>';
+  }
+  function renderRecords(data){
+    const all=Object.entries(seasons).flatMap(([year,teams])=>teams.map(t=>({...t,year})));
+    const top=(key)=>[...all].sort((a,b)=>key(b)-key(a)).slice(0,10);
+    document.getElementById("historicalRecordBoards").innerHTML=
+      '<div class="history-record-grid">'+
+      board("Top 10 • Season points scored",top(t=>t.pointsFor),t=>money(t.pointsFor)," PF")+
+      board("Top 10 • Season points against",top(t=>t.pointsAgainst),t=>money(t.pointsAgainst)," PA")+
+      board("Top 10 • Points per game",top(t=>t.pointsFor/games(t)),t=>money(t.pointsFor/games(t))," PPG")+
+      board("Top 10 • Win percentage",top(t=>(t.wins+t.ties/2)/games(t)),t=>(((t.wins+t.ties/2)/games(t))*100).toFixed(1),"%")+
+      suppliedBoard("Top 10 • Weekly team scores",data.weeklyTeamTop10||[],t=>t.team+' — '+money(t.points))+
+      suppliedBoard("Top 10 • Individual starters (2018–2025)",data.individualStarterTop10||[],t=>t.player+' — '+money(t.points)+' • '+t.team)+
+      '</div><p>Season totals come from ESPN standings. Weekly team and player lists were supplied by the commissioner; the complete ESPN weekly crosscheck is pending.</p>'+
+      '<h3>💀 Hall of Shame</h3><div class="history-record-grid">'+
+      (data.hallOfShame||[]).map(t=>'<div class="history-panel"><h3>'+esc(t.label)+'</h3><strong>'+esc(t.subject)+'</strong><p>'+esc(t.detail)+'</p></div>').join('')+
+      '</div><p>Still being audited: lowest-scoring victory, top ten painful losses, and top ten bench disasters. Those records require complete weekly matchup and lineup data.</p>';
+  }
+  fetch("./cpbffl-history.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("History HTTP "+r.status);return r.json()}).then(data=>{
+    for(const [year,teams] of Object.entries(data.seasons||{})){
+      if(teams.length===12)seasons[year]=teams;
+    }
+    const select=document.getElementById("historicalSeasonSelect");
+    if(!select||!Object.keys(seasons).length)throw Error("No verified season standings");
+    select.innerHTML=Object.keys(seasons).sort((a,b)=>b-a).map(y=>'<option value="'+y+'">'+y+'</option>').join("");
+    select.addEventListener("change",()=>renderSeason(select.value));
+    renderSeason(select.value);
+    renderRecords(data);
+  }).catch(()=>{
+    document.getElementById("historicalSeasonDetails").textContent="ESPN season scoreboards are unavailable right now.";
+    document.getElementById("historicalRecordBoards").textContent="ESPN season records are unavailable right now.";
+  });
 })();
 </script></body>
 </html>

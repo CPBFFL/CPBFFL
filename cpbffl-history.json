@@ -1,0 +1,2044 @@
+{
+  "source": "Flaim-connected ESPN league 670676",
+  "scope": "2012–2025 completed seasons; regular-season standings totals",
+  "weeklyScoreboardsCoverage": {
+    "weeksChecked": 97,
+    "weeksExpected": 238,
+    "note": "97 of 238 ESPN weeks crosschecked; commissioner-provided weekly leaderboards await full verification."
+  },
+  "seasons": {
+    "2012": [
+      {
+        "teamId": 3,
+        "teamName": "Aaron Rodgers Neighborhood",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1476,
+        "pointsAgainst": 1288,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 7,
+        "teamName": "Arian Brotherhood",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1623,
+        "pointsAgainst": 1452,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 11,
+        "teamName": "Golden  Grahams ",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1377,
+        "pointsAgainst": 1309,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 12,
+        "teamName": "Jahvid's Last  Stand!",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1514,
+        "pointsAgainst": 1417,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 2,
+        "teamName": "Pa-faff On that A$$",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1337,
+        "pointsAgainst": 1426,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 6,
+        "teamName": "who said this was a Brees",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1222,
+        "pointsAgainst": 1201,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 8,
+        "teamName": "UP YOURS 3",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1313,
+        "pointsAgainst": 1385,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 10,
+        "teamName": "Uranus Taintsmashers",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1286,
+        "pointsAgainst": 1310,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 4,
+        "teamName": "Maclin On Your Girl",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1284,
+        "pointsAgainst": 1347,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "Who's Bush  is better?",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1217,
+        "pointsAgainst": 1322,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "Franchise Tags",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1333,
+        "pointsAgainst": 1395,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "The Run DMC And Shady Show",
+        "wins": 4,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1224,
+        "pointsAgainst": 1354,
+        "finalRank": 12,
+        "championshipWon": false
+      }
+    ],
+    "2013": [
+      {
+        "teamId": 17,
+        "teamName": "The Real  McCoy ",
+        "wins": 10,
+        "losses": 2,
+        "ties": 0,
+        "pointsFor": 1566,
+        "pointsAgainst": 1316,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 16,
+        "teamName": "Damarc-on My Peterson",
+        "wins": 9,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1645,
+        "pointsAgainst": 1256,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "The Cleveland  Traders",
+        "wins": 9,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1274,
+        "pointsAgainst": 1275,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 13,
+        "teamName": "Password is Taco",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1432,
+        "pointsAgainst": 1410,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Smokin Trees  And Scoring TDs",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1551,
+        "pointsAgainst": 1460,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "JJ does the dougie",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1457,
+        "pointsAgainst": 1412,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "EAT A  DICKERSON",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1311,
+        "pointsAgainst": 1265,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1310,
+        "pointsAgainst": 1269,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "My Team Sucks",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1329,
+        "pointsAgainst": 1355,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "Franchise Tags",
+        "wins": 4,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1206,
+        "pointsAgainst": 1417,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 12,
+        "teamName": "Focused De-Railment",
+        "wins": 3,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1151,
+        "pointsAgainst": 1518,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "What da  Luck?  ",
+        "wins": 2,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1241,
+        "pointsAgainst": 1520,
+        "finalRank": 8,
+        "championshipWon": false
+      }
+    ],
+    "2014": [
+      {
+        "teamId": 3,
+        "teamName": "Archie  Manning's Seed",
+        "wins": 11,
+        "losses": 1,
+        "ties": 0,
+        "pointsFor": 1562,
+        "pointsAgainst": 1260,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 13,
+        "teamName": "Terrance West LikedYourPhoto",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1443,
+        "pointsAgainst": 1351,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Tburg Fennell",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1374,
+        "pointsAgainst": 1316,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1569,
+        "pointsAgainst": 1415,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Money Manziel ",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1341,
+        "pointsAgainst": 1255,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "Trust In  Trestman ",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1470,
+        "pointsAgainst": 1377,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "bmoney hustles",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1299,
+        "pointsAgainst": 1583,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "Sproles Royce",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1429,
+        "pointsAgainst": 1354,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 16,
+        "teamName": "THE REVENGE OUR YEAR",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1259,
+        "pointsAgainst": 1342,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "Stafford Park Steamrollers",
+        "wins": 3,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1362,
+        "pointsAgainst": 1467,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Dez-ed and  Confused",
+        "wins": 3,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1241,
+        "pointsAgainst": 1398,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 12,
+        "teamName": "F*ck Her Right In The Percy",
+        "wins": 2,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1105,
+        "pointsAgainst": 1336,
+        "finalRank": 11,
+        "championshipWon": false
+      }
+    ],
+    "2015": [
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1568.5,
+        "pointsAgainst": 1371.22,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Who the heck  Even know blatt",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1509.58,
+        "pointsAgainst": 1454.56,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "CJ  Sucks ",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1548.18,
+        "pointsAgainst": 1385.44,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Lianne's Lesbian Lover ",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1614.84,
+        "pointsAgainst": 1551.92,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 13,
+        "teamName": "Gronk Says Luck Off",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1505.16,
+        "pointsAgainst": 1413.94,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "Suck it  Goodell",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1559,
+        "pointsAgainst": 1476.18,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 16,
+        "teamName": "Strongsville Sewer Rats",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1426.5,
+        "pointsAgainst": 1485.38,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "Team Jacurt",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1449.6,
+        "pointsAgainst": 1489.12,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Tburg fennell",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1283.94,
+        "pointsAgainst": 1406.42,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The  Bye week",
+        "wins": 4,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1364.86,
+        "pointsAgainst": 1570.28,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "T.Y.lenol PM",
+        "wins": 4,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1442.84,
+        "pointsAgainst": 1457.14,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 12,
+        "teamName": "The San Fran Sisqo's",
+        "wins": 3,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1345.58,
+        "pointsAgainst": 1556.98,
+        "finalRank": 12,
+        "championshipWon": false
+      }
+    ],
+    "2016": [
+      {
+        "teamId": 9,
+        "teamName": "The  Bye week",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1575.1,
+        "pointsAgainst": 1406.66,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1580.66,
+        "pointsAgainst": 1389.26,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "ZEKE-A Virus",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1566,
+        "pointsAgainst": 1589.78,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 18,
+        "teamName": "Cam You Dig It",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1487.78,
+        "pointsAgainst": 1549.82,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "RAWLS is War",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1504.7,
+        "pointsAgainst": 1418.16,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "Shawn's Smut Shack",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1587.92,
+        "pointsAgainst": 1521.12,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Shawn can Fund his weddin",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1415.96,
+        "pointsAgainst": 1445.18,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 13,
+        "teamName": "Jaggin Off",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1465.48,
+        "pointsAgainst": 1539.46,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 16,
+        "teamName": "Strongsville Sewer Rats",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1545.16,
+        "pointsAgainst": 1589.18,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "SmutakSucks SaggyTDS",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1402.1,
+        "pointsAgainst": 1442.38,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "A trophy with No names",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1346.2,
+        "pointsAgainst": 1462.58,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Concord Cocksmen",
+        "wins": 2,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1387.64,
+        "pointsAgainst": 1511.12,
+        "finalRank": 9,
+        "championshipWon": false
+      }
+    ],
+    "2017": [
+      {
+        "teamId": 9,
+        "teamName": "The  Bye week",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1424.94,
+        "pointsAgainst": 1309.46,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 13,
+        "teamName": "Wild Thots",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1566.86,
+        "pointsAgainst": 1339.58,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "Hogans Zeros",
+        "wins": 8,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1504.2,
+        "pointsAgainst": 1404.04,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "America- Land of Freeman",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1394.02,
+        "pointsAgainst": 1363.76,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "Hanging With Hernandez ",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1425.28,
+        "pointsAgainst": 1390.8,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "Jabrill Deal",
+        "wins": 7,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1465.16,
+        "pointsAgainst": 1393.46,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1393.42,
+        "pointsAgainst": 1454.78,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "I Got That Good D!",
+        "wins": 6,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1412.3,
+        "pointsAgainst": 1315.2,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Low Ball",
+        "wins": 5,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1332.86,
+        "pointsAgainst": 1368.18,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Make League Great Again ",
+        "wins": 4,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1295.72,
+        "pointsAgainst": 1450.68,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "soft  balls",
+        "wins": 4,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1240.2,
+        "pointsAgainst": 1349.44,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 16,
+        "teamName": "Strongsville Sewer Rats",
+        "wins": 2,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1105.48,
+        "pointsAgainst": 1421.06,
+        "finalRank": 8,
+        "championshipWon": false
+      }
+    ],
+    "2018": [
+      {
+        "teamId": 9,
+        "teamName": "The  Bye Week",
+        "wins": 9,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1714.96,
+        "pointsAgainst": 1600.6,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 13,
+        "teamName": "Kicker Points Matter",
+        "wins": 9,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1789.24,
+        "pointsAgainst": 1465.18,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 8,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1706.94,
+        "pointsAgainst": 1640.18,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "A Horrible Theilen",
+        "wins": 8,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1871.16,
+        "pointsAgainst": 1713,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 20,
+        "teamName": "Ninja  Warriors",
+        "wins": 8,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1740.38,
+        "pointsAgainst": 1605.36,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Easy Breesy",
+        "wins": 7,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1610.56,
+        "pointsAgainst": 1542.54,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "BAKER'S BROWNS",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1552,
+        "pointsAgainst": 1620.68,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "Ertz  Hurtz",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1718.86,
+        "pointsAgainst": 1773.64,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "Gronky Tonk",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1524.96,
+        "pointsAgainst": 1642.6,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Bless 'em",
+        "wins": 5,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1742.24,
+        "pointsAgainst": 1715.46,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Rigatoni  Rico",
+        "wins": 3,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1467.48,
+        "pointsAgainst": 1717.66,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Mistake On  The Lake",
+        "wins": 3,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1471.7,
+        "pointsAgainst": 1873.58,
+        "finalRank": 12,
+        "championshipWon": false
+      }
+    ],
+    "2019": [
+      {
+        "teamId": 5,
+        "teamName": "🏈🏆 Instant Kamara",
+        "wins": 10,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1836.14,
+        "pointsAgainst": 1570.9,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "Smutaks Baby Daddy ",
+        "wins": 10,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1746.04,
+        "pointsAgainst": 1442.66,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 9,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1732.8,
+        "pointsAgainst": 1497.78,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "The Adams Family",
+        "wins": 9,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1678.04,
+        "pointsAgainst": 1601.12,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "Deshaun Of the Dead",
+        "wins": 7,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1665.16,
+        "pointsAgainst": 1512.92,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 20,
+        "teamName": "Baby Got  Dak",
+        "wins": 7,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1530.06,
+        "pointsAgainst": 1607.62,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The Bye Week",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1636.22,
+        "pointsAgainst": 1696.12,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 13,
+        "teamName": "Big Nick's Chubb",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1577.76,
+        "pointsAgainst": 1581.82,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "STANDING  ROOM ONLY",
+        "wins": 5,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1498.48,
+        "pointsAgainst": 1569.26,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Central 3",
+        "wins": 5,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1419.62,
+        "pointsAgainst": 1633,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Macedonia Mango White Claws ",
+        "wins": 2,
+        "losses": 11,
+        "ties": 0,
+        "pointsFor": 1250.14,
+        "pointsAgainst": 1491.52,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "pouge mahomes",
+        "wins": 2,
+        "losses": 11,
+        "ties": 0,
+        "pointsFor": 1392.3,
+        "pointsAgainst": 1758.04,
+        "finalRank": 12,
+        "championshipWon": false
+      }
+    ],
+    "2020": [
+      {
+        "teamId": 5,
+        "teamName": "Cook me up a Goodwin",
+        "wins": 10,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1705.24,
+        "pointsAgainst": 1519.98,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 13,
+        "teamName": "Joe Mixon's Pimp-Hand",
+        "wins": 10,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1836.22,
+        "pointsAgainst": 1517.1,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 17,
+        "teamName": "[~~~~] __________",
+        "wins": 9,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1770.7,
+        "pointsAgainst": 1430.92,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Cleveland Covids",
+        "wins": 9,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1587.18,
+        "pointsAgainst": 1525.48,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The Bye Week",
+        "wins": 7,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1543.24,
+        "pointsAgainst": 1583.62,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr. McGibblets",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1591.02,
+        "pointsAgainst": 1622.3,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Gup Cup",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1538.74,
+        "pointsAgainst": 1556.94,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "My team sucks ",
+        "wins": 6,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1623.8,
+        "pointsAgainst": 1541.18,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Old Brooklyn  White Claws ",
+        "wins": 5,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1448.66,
+        "pointsAgainst": 1569.92,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Team 3",
+        "wins": 4,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1420.62,
+        "pointsAgainst": 1671.26,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 20,
+        "teamName": "I Hate Fantasy",
+        "wins": 4,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1600.06,
+        "pointsAgainst": 1694.42,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "Tompa Bay Gronkaneers",
+        "wins": 2,
+        "losses": 11,
+        "ties": 0,
+        "pointsFor": 1324.94,
+        "pointsAgainst": 1757.3,
+        "finalRank": 12,
+        "championshipWon": false
+      }
+    ],
+    "2021": [
+      {
+        "teamId": 14,
+        "teamName": "Clarks Head Coach",
+        "wins": 11,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1960.12,
+        "pointsAgainst": 1732.02,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Old Brooklyn White Claws",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1840.94,
+        "pointsAgainst": 1819,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Team 3",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1826.56,
+        "pointsAgainst": 1711.64,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 1,
+        "teamName": "Katums LPCC",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1817.56,
+        "pointsAgainst": 1755.86,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "JMarr  The Great ",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1685.76,
+        "pointsAgainst": 1720.7,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The Bye Week",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1969.58,
+        "pointsAgainst": 1832.16,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 13,
+        "teamName": "Defending Champion",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1847.62,
+        "pointsAgainst": 1737.82,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 20,
+        "teamName": "I Still Hate Fantasy",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1833.02,
+        "pointsAgainst": 1796.04,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "Can't Win  Without Jake",
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1729.78,
+        "pointsAgainst": 1907.36,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": " 🍆 Morning Chubb",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1729.34,
+        "pointsAgainst": 1785.04,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Entertainment 720",
+        "wins": 4,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1658.44,
+        "pointsAgainst": 1961.74,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Slow Cooker Sunday",
+        "wins": 3,
+        "losses": 11,
+        "ties": 0,
+        "pointsFor": 1608.02,
+        "pointsAgainst": 1747.36,
+        "finalRank": 11,
+        "championshipWon": false
+      }
+    ],
+    "2022": [
+      {
+        "teamId": 7,
+        "teamName": "Old Brooklyn WWWWhite Claws",
+        "wins": 12,
+        "losses": 2,
+        "ties": 0,
+        "pointsFor": 1964.5,
+        "pointsAgainst": 1699.76,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Team 3 Cegelka",
+        "wins": 11,
+        "losses": 3,
+        "ties": 0,
+        "pointsFor": 1899.54,
+        "pointsAgainst": 1584.12,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 3,
+        "teamName": "Mr. Allen's  Playhouse",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1768.82,
+        "pointsAgainst": 1621.3,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The Bye Week",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1782.12,
+        "pointsAgainst": 1631.42,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "Gold Kupp Standard ",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1973.8,
+        "pointsAgainst": 1802.06,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Entertainment 720",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1794.36,
+        "pointsAgainst": 1661.2,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 20,
+        "teamName": "Farewell  Tour",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1858.78,
+        "pointsAgainst": 1782.2,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Katums LPCC",
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1676.38,
+        "pointsAgainst": 1724.58,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "Toothless Fairy",
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1617.62,
+        "pointsAgainst": 1909.24,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "Cookie Monster",
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1754.72,
+        "pointsAgainst": 1777.68,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "West Mike",
+        "wins": 3,
+        "losses": 11,
+        "ties": 0,
+        "pointsFor": 1462.86,
+        "pointsAgainst": 1756.3,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 21,
+        "teamName": "Take Care",
+        "wins": 0,
+        "losses": 14,
+        "ties": 0,
+        "pointsFor": 1292.9,
+        "pointsAgainst": 1896.54,
+        "finalRank": 12,
+        "championshipWon": false
+      }
+    ],
+    "2023": [
+      {
+        "teamId": 14,
+        "teamName": "Brians Daddy",
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1873.96,
+        "pointsAgainst": 1628.42,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Team 3",
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1870.8,
+        "pointsAgainst": 1596.04,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Entertainment 720",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1882.78,
+        "pointsAgainst": 1783.84,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "TaylorMade",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1845.66,
+        "pointsAgainst": 1837.74,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 5,
+        "teamName": "Lemon Herbert",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1572.64,
+        "pointsAgainst": 1619.08,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The Bye Week",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1938.96,
+        "pointsAgainst": 1854.96,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 20,
+        "teamName": "C4",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1739.04,
+        "pointsAgainst": 1639.88,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 21,
+        "teamName": "Injuryapolis Colts",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1913.3,
+        "pointsAgainst": 1752.02,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 17,
+        "teamName": "The Turd squad ",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1804.92,
+        "pointsAgainst": 1908.06,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "No Chance in Hell",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1542.28,
+        "pointsAgainst": 1745.16,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Old Brooklyn White Claws",
+        "wins": 4,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1513.46,
+        "pointsAgainst": 1894.68,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Oh hey, Justin ",
+        "wins": 3,
+        "losses": 11,
+        "ties": 0,
+        "pointsFor": 1588.52,
+        "pointsAgainst": 1826.44,
+        "finalRank": 9,
+        "championshipWon": false
+      }
+    ],
+    "2024": [
+      {
+        "teamId": 7,
+        "teamName": "Just a Kittle Chubb",
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1909.36,
+        "pointsAgainst": 1660.94,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 21,
+        "teamName": "Injuryapolis Colts",
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1792.9,
+        "pointsAgainst": 1674.6,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr.McGIBBlets",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1905.44,
+        "pointsAgainst": 1723.34,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Team 3",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1799.58,
+        "pointsAgainst": 1729.3,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "Two Girls One Gup",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 2070.74,
+        "pointsAgainst": 1745.36,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 20,
+        "teamName": "CeeDeeCee Guidelines",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 1803.3,
+        "pointsAgainst": 1816.16,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "Gupp Cup Coming Soon",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1822.28,
+        "pointsAgainst": 1909.42,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Entertainment 720",
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1918.22,
+        "pointsAgainst": 1915.22,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 5,
+        "teamName": "Rollin' With Mahomies",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1645.36,
+        "pointsAgainst": 1817.76,
+        "finalRank": 10,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Rescue Rico",
+        "wins": 4,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1758.22,
+        "pointsAgainst": 1917.52,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "Welcome To The Jungle",
+        "wins": 4,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1864.54,
+        "pointsAgainst": 1940.1,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The Bye Week",
+        "wins": 3,
+        "losses": 11,
+        "ties": 0,
+        "pointsFor": 1319.26,
+        "pointsAgainst": 1759.48,
+        "finalRank": 7,
+        "championshipWon": false
+      }
+    ],
+    "2025": [
+      {
+        "teamId": 5,
+        "teamName": "Deshaun Dont Touchdown There",
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "pointsFor": 1757.98,
+        "pointsAgainst": 1615.32,
+        "finalRank": 4,
+        "championshipWon": false
+      },
+      {
+        "teamId": 19,
+        "teamName": "Where is the Commissioner?",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1934.34,
+        "pointsAgainst": 1818.7,
+        "finalRank": 1,
+        "championshipWon": true
+      },
+      {
+        "teamId": 20,
+        "teamName": "FOREVER UNCLEANS ",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1846.54,
+        "pointsAgainst": 1736.66,
+        "finalRank": 5,
+        "championshipWon": false
+      },
+      {
+        "teamId": 21,
+        "teamName": "Injuryapolis Colts",
+        "wins": 9,
+        "losses": 5,
+        "ties": 0,
+        "pointsFor": 1995.74,
+        "pointsAgainst": 1812.8,
+        "finalRank": 3,
+        "championshipWon": false
+      },
+      {
+        "teamId": 18,
+        "teamName": "Entertainment 720",
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsFor": 2044.48,
+        "pointsAgainst": 1779.66,
+        "finalRank": 6,
+        "championshipWon": false
+      },
+      {
+        "teamId": 7,
+        "teamName": "Sunday Cruising",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1892,
+        "pointsAgainst": 1838.66,
+        "finalRank": 2,
+        "championshipWon": false
+      },
+      {
+        "teamId": 17,
+        "teamName": "Herbert  and the Hendersons",
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsFor": 1760.72,
+        "pointsAgainst": 1753.7,
+        "finalRank": 11,
+        "championshipWon": false
+      },
+      {
+        "teamId": 15,
+        "teamName": "Team 3",
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "pointsFor": 1615.06,
+        "pointsAgainst": 1708.38,
+        "finalRank": 8,
+        "championshipWon": false
+      },
+      {
+        "teamId": 1,
+        "teamName": "Mr.McGIBBlets",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1758.78,
+        "pointsAgainst": 1875.64,
+        "finalRank": 12,
+        "championshipWon": false
+      },
+      {
+        "teamId": 3,
+        "teamName": "Iddy Biddy Griddy Committee ",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1655.62,
+        "pointsAgainst": 1778.98,
+        "finalRank": 7,
+        "championshipWon": false
+      },
+      {
+        "teamId": 14,
+        "teamName": "Smutaks Saggy TDs",
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "pointsFor": 1686.66,
+        "pointsAgainst": 1967.64,
+        "finalRank": 9,
+        "championshipWon": false
+      },
+      {
+        "teamId": 9,
+        "teamName": "The Bye Week",
+        "wins": 4,
+        "losses": 10,
+        "ties": 0,
+        "pointsFor": 1516.32,
+        "pointsAgainst": 1778.1,
+        "finalRank": 10,
+        "championshipWon": false
+      }
+    ]
+  },
+  "weeklyTeamTop10": [
+    {
+      "team": "Mr.McGIBBlets",
+      "points": 233.22,
+      "year": 2024,
+      "week": 16
+    },
+    {
+      "team": "Instant Kamara",
+      "points": 219.04,
+      "year": 2019,
+      "week": 3
+    },
+    {
+      "team": "Big Nick’s Chubb",
+      "points": 213.86,
+      "year": 2019,
+      "week": 6
+    },
+    {
+      "team": "Defending Champion",
+      "points": 210.02,
+      "year": 2021,
+      "week": 6
+    },
+    {
+      "team": "Two Girls One Gup",
+      "points": 205.22,
+      "year": 2024,
+      "week": 11
+    },
+    {
+      "team": "The Bye Week",
+      "points": 205.0,
+      "year": 2021,
+      "week": 2
+    },
+    {
+      "team": "Joe Mixon’s Pimp-Hand",
+      "points": 201.64,
+      "year": 2020,
+      "week": 16
+    },
+    {
+      "team": "Password is Taco",
+      "points": 198.0,
+      "year": 2013,
+      "week": 2
+    },
+    {
+      "team": "Entertainment 720",
+      "points": 197.9,
+      "year": 2025,
+      "week": 3
+    },
+    {
+      "team": "Suck It Goodell",
+      "points": 196.74,
+      "year": 2015,
+      "week": 15
+    }
+  ],
+  "individualStarterTop10": [
+    {
+      "player": "Tyreek Hill",
+      "points": 63.9,
+      "team": "Cleveland Covids",
+      "year": 2020,
+      "week": 12
+    },
+    {
+      "player": "Ja’Marr Chase",
+      "points": 63.6,
+      "team": "JMarr The Great",
+      "year": 2021,
+      "week": 17
+    },
+    {
+      "player": "Ja’Marr Chase",
+      "points": 63.4,
+      "team": "Welcome To The Jungle",
+      "year": 2024,
+      "week": 10
+    },
+    {
+      "player": "Jahmyr Gibbs",
+      "points": 62.4,
+      "team": "Injuryapolis Colts",
+      "year": 2025,
+      "week": 12
+    },
+    {
+      "player": "Alvin Kamara",
+      "points": 58.2,
+      "team": "[~~~~] _________",
+      "year": 2020,
+      "week": 16
+    },
+    {
+      "player": "Mike Evans",
+      "points": 56.7,
+      "team": "Mr. Allen’s Playhouse",
+      "year": 2022,
+      "week": 17
+    },
+    {
+      "player": "Amari Cooper",
+      "points": 56.5,
+      "team": "No Chance in Hell",
+      "year": 2023,
+      "week": 16
+    },
+    {
+      "player": "Tyler Lockett",
+      "points": 56.36,
+      "team": "Old Brooklyn White Claws",
+      "year": 2020,
+      "week": 7
+    },
+    {
+      "player": "Joe Mixon",
+      "points": 56.1,
+      "team": "Cookie Monster",
+      "year": 2022,
+      "week": 9
+    },
+    {
+      "player": "Jonathan Taylor",
+      "points": 55.6,
+      "team": "Entertainment 720",
+      "year": 2025,
+      "week": 10
+    }
+  ],
+  "hallOfShame": [
+    {
+      "label": "Highest score in a loss",
+      "subject": "Welcome To The Jungle",
+      "detail": "173.18 points"
+    },
+    {
+      "label": "Biggest ass-kicking",
+      "subject": "Two Girls One Gup",
+      "detail": "Won by 138.64 points"
+    },
+    {
+      "label": "Closest finish",
+      "subject": "Welcome To The Jungle",
+      "detail": "Won by 0.08 points"
+    },
+    {
+      "label": "Highest score left on the bench",
+      "subject": "De’Von Achane",
+      "detail": "57.30 points"
+    }
+  ],
+  "weeklyLeaderboardSource": "Commissioner-provided; ESPN full weekly audit incomplete"
+}
