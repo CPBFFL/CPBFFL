@@ -1717,6 +1717,32 @@ html[data-commissioner-mode="true"] .prediction-admin-actions{
   line-height:1.5;
   white-space:pre-wrap;
 }
+.prediction-published-notes.story-layout{
+  padding:0;
+  border:0;
+  background:none;
+}
+.prediction-story-list{display:grid;gap:14px}
+.prediction-story{
+  padding:18px;
+  border:1px solid #5f341f;
+  border-radius:17px;
+  background:linear-gradient(180deg,rgba(25,15,10,.98),rgba(14,9,6,.98));
+}
+.prediction-story.gotw{
+  border-color:#f45113;
+  box-shadow:0 0 0 1px rgba(244,81,19,.26),0 12px 32px rgba(0,0,0,.2);
+  background:linear-gradient(135deg,rgba(65,27,11,.98),rgba(20,11,7,.98) 65%);
+}
+.prediction-story-kicker{color:#ff7a3d;font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+.prediction-story h3{margin:7px 0 9px;font-size:19px;line-height:1.25;color:#fff8ef}
+.prediction-story-history{display:inline-block;margin:0 0 9px;padding:6px 9px;border-radius:7px;background:rgba(244,81,19,.11);color:#ffb18d;font-size:11px;font-weight:800}
+.prediction-story p{margin:10px 0 0;color:#ead8ca;font-size:13px;line-height:1.65;white-space:normal}
+.prediction-story .prediction-story-outcome{padding-top:10px;border-top:1px solid #5f341f;color:#ffb18d;font-weight:850}
+#predictions.story-published #autoGotwReason,
+#predictions.story-published #predictionGames,
+#predictions.story-published #predictionPublicNote{display:none}
+@media(max-width:700px){.prediction-story{padding:14px}.prediction-story h3{font-size:16px}}
 
 
 .prediction-publish-preview{
@@ -4409,6 +4435,41 @@ document.addEventListener('DOMContentLoaded', function(){
   ["KatumsLPCC","Shawn Smutak","Little Downies"],["bcjr9","Brian Corrigan","Commissioner Still Sucks"],["Deutsch4988","Paul Deutsch","Deutsch4988"],["emann714","Erik Mannarino","Sunday Cruisers"]
  ];
  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+ function renderPredictionNarrative(note){
+   const lines=String(note||"").replace(/\r\n?/g,"\n").split("\n");
+   const articles=[];
+   let current=null;
+   let introduction="";
+   const heading=/^(?:GAME OF THE WEEK\s*[—-]\s*)?(?:\d+(?:ST|ND|RD|TH)\s+)?[\s\S]+?\s+VS\.\s+(?:\d+(?:ST|ND|RD|TH)\s+)?[^\n]+$/i;
+   for(const raw of lines){
+     const line=raw.trim();
+     if(!line)continue;
+     const oneLine=line.match(/^(.*?)\s+[—-]\s+Pick:\s*(.*)$/i);
+     const title=oneLine?oneLine[1]:line;
+     if(heading.test(title)){
+       current={title,history:"",paragraphs:[]};
+       articles.push(current);
+       if(oneLine)current.paragraphs.push("Pick: "+oneLine[2]);
+     }else if(current){
+       if(/^H2H History:/i.test(line))current.history=line;
+       else current.paragraphs.push(line);
+     }else if(!introduction){
+       introduction=line;
+     }
+   }
+   if(!articles.length)return null;
+   articles.sort((a,b)=>Number(/^GAME OF THE WEEK\b/i.test(b.title))-Number(/^GAME OF THE WEEK\b/i.test(a.title)));
+   const out=articles.map((a,i)=>{
+     const featured=/^GAME OF THE WEEK\b/i.test(a.title);
+     const name=a.title.replace(/^GAME OF THE WEEK\s*[—-]\s*/i,"");
+     const body=a.paragraphs.map((p,j)=>'<p'+(j===a.paragraphs.length-1?' class="prediction-story-outcome"':'')+'>'+esc(p)+'</p>').join("");
+     return '<section class="prediction-story'+(featured?' gotw':'')+'"><div class="prediction-story-kicker">'+
+       (featured?'🏈 GAME OF THE WEEK':"MATCHUP "+(i+1))+'</div><h3>'+esc(name)+'</h3>'+
+       (a.history?'<div class="prediction-story-history">'+esc(a.history)+'</div>':'')+body+'</section>';
+   }).join("");
+   return '<div class="prediction-story-list" aria-label="'+esc(introduction||"Weekly predictions")+'">'+out+'</div>';
+ }
+ window.CPBFFL_renderPredictionNarrative=renderPredictionNarrative;
  const get=async p=>{const r=await fetch(API+p,{cache:"no-store"});if(!r.ok)throw new Error("Sleeper HTTP "+r.status);return r.json()};
  const key=(week,id)=>`cpbffl_prediction_${week}_${id}`;
  const gotwKey=week=>`cpbffl_gotw_${week}`;
@@ -4473,9 +4534,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
    if(note){
      el.hidden=false;
-     el.innerHTML=`<strong>Commissioner's Take</strong><p>${esc(note)}</p>`;
+     const stories=renderPredictionNarrative(note);
+     el.classList.toggle("story-layout",Boolean(stories));
+     document.getElementById("predictions")?.classList.toggle("story-published",Boolean(stories) && !commissionerMode);
+    el.innerHTML=`<strong>Commissioner's Take</strong><p>${esc(note)}</p>`;
+     if(stories)el.innerHTML=stories;
    }else{
      el.hidden=true;
+     el.classList.remove("story-layout");
+     document.getElementById("predictions")?.classList.remove("story-published");
      el.innerHTML="";
    }
  }
@@ -5270,7 +5337,11 @@ window.addEventListener("cpbffl-shared-data-ready", function(){
         .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;").replace(/'/g,"&#039;");
       noteBox.hidden=false;
-      noteBox.innerHTML=`<strong>Commissioner's Take</strong><p>${safe}</p>`;
+     noteBox.innerHTML=`<strong>Commissioner's Take</strong><p>${safe}</p>`;
+      const stories=window.CPBFFL_renderPredictionNarrative?.(note);
+      noteBox.classList.toggle("story-layout",Boolean(stories));
+      document.getElementById("predictions")?.classList.toggle("story-published",Boolean(stories) && document.documentElement.dataset.commissionerMode!=="true");
+      if(stories)noteBox.innerHTML=stories;
     }
     setTimeout(()=>pw.dispatchEvent(new Event("change",{bubbles:true})),300);
     setTimeout(()=>pw.dispatchEvent(new Event("change",{bubbles:true})),1000);
