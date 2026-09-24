@@ -3181,7 +3181,7 @@ John changed his team name after getting smoked."></textarea>
 <script>
 (function(){
   function currentPage(){
-    return decodeURIComponent(location.hash.slice(1)) || 'home';
+    return decodeURIComponent(location.hash.slice(1)) || new URLSearchParams(location.search).get('page') || 'home';
   }
 
   function showPage(id){
