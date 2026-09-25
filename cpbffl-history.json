@@ -2,9 +2,9 @@
   "source": "Flaim-connected ESPN league 670676",
   "scope": "2012–2025 completed seasons; regular-season standings totals",
   "weeklyScoreboardsCoverage": {
-    "weeksChecked": 97,
+    "weeksChecked": 128,
     "weeksExpected": 238,
-    "note": "97 of 238 ESPN weeks crosschecked; commissioner-provided weekly leaderboards await full verification."
+    "note": "128 of 238 ESPN weeks checked; lowest weekly score is provisional until full audit."
   },
   "seasons": {
     "2012": [
@@ -2054,6 +2054,26 @@
       "subject": "De’Von Achane",
       "detail": "57.30 points • Injuryapolis Colts • 2023 Week 3",
       "source": "ESPN Week 3, 2023 lineup; Achane in Bench slot"
+    },
+    {
+      "label": "Lowest season points scored",
+      "subject": "F*ck Her Right In The Percy",
+      "detail": "1,105.00 points • 2014 completed regular season",
+      "year": 2014,
+      "source": "ESPN season standings"
+    },
+    {
+      "label": "Lowest weekly team score • provisional",
+      "subject": "Franchise Tags",
+      "detail": "35.00 points • 2013 Week 2; ESPN weekly audit incomplete",
+      "year": 2013,
+      "week": 2,
+      "source": "Partial ESPN weekly scoreboard audit"
+    },
+    {
+      "label": "Longest losing streak • 2026 onward",
+      "subject": "Awaiting completed matchups",
+      "detail": "ESPN streak history is still being audited."
     }
   ],
   "weeklyLeaderboardSource": "Commissioner-provided; ESPN full weekly audit incomplete"

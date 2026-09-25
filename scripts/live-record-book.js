@@ -11,6 +11,27 @@
     .sort((a,b)=>(ascending?Number(a.points)-Number(b.points):Number(b.points)-Number(a.points)) || Number(a.year)-Number(b.year) || Number(a.week||0)-Number(b.week||0))
     .slice(0,10);
   window.CPBFFL_RECORDS_TOP10=top;
+  function streak(events,result){
+    const groups=new Map();
+    for(const e of events){
+      const key=e.year+':'+e.rosterId;
+      if(!groups.has(key))groups.set(key,[]);
+      groups.get(key).push(e);
+    }
+    let best=null;
+    for(const rows of groups.values()){
+      rows.sort((a,b)=>a.week-b.week);
+      let run=null;
+      for(const e of rows){
+        if(e.result!==result){run=null;continue}
+        if(run&&e.week===run.end+1){run.end=e.week;run.games++}
+        else run={team:e.team,year:e.year,start:e.week,end:e.week,games:1};
+        if(!best||run.games>best.games)best={...run};
+      }
+    }
+    return best;
+  }
+  window.CPBFFL_RECORDS_STREAK=streak;
 
   function list(panel,rows,main,minor){
     const ol=panel?.querySelector('ol');if(!ol)return;
@@ -93,6 +114,11 @@
     // Seasonal leaderboards count completed seasons only, never a partial-season pace.
     const seasons=Object.entries(baseline.seasons||{}).flatMap(([year,teams])=>teams.map(t=>({...t,year:Number(year)})));
     const totals=[...seasons,...live.seasonRows];
+    const lowestSeason=top(totals.map(t=>({...t,points:Number(t.pointsFor)})),true)[0];
+    const lowestWeek=top([{year:2013,week:2,team:'Franchise Tags',points:35},...live.events],true)[0];
+    const winStreak=streak(live.events,'W'),loseStreak=streak(live.events,'L');
+    const fame=document.getElementById('hallOfFameRecordCards');
+    if(fame)fame.innerHTML=winStreak?card('Longest winning streak • 2026 onward',winStreak.team,winStreak.games+' consecutive wins • '+winStreak.year+' Weeks '+winStreak.start+'–'+winStreak.end):card('Longest winning streak • 2026 onward','Awaiting completed matchups','ESPN streak history is still being audited.');
     const pf=top(totals.map(t=>({...t,points:Number(t.pointsFor)})));
     const pa=top([...seasons,...live.seasonRows.filter(t=>Number.isFinite(Number(t.pointsAgainst)))].map(t=>({...t,points:Number(t.pointsAgainst)})));
     list(panels[0],pf,t=>t.teamName+' — '+money(t.points)+' PF',t=>t.year+' • completed regular season');
@@ -125,10 +151,13 @@
       const margin=worstMargin&&worstMargin.margin>138.64?card('Biggest ass-kicking',worstMargin.team,scoreline(worstMargin)+' ('+money(worstMargin.margin)+'-point win)'):card(historicMargin.label,historicMargin.subject,historicMargin.detail);
       const narrow=closest&&closest.margin<0.08?card('Closest finish',closest.team,scoreline(closest)+' ('+money(closest.margin)+'-point win)'):card(historicClose.label,historicClose.subject,historicClose.detail);
       const bench=benched&&benched.points>57.3?card('Highest score left on the bench',benched.playerName||'Player '+benched.playerId,money(benched.points)+' points • '+benched.team+' • '+benched.year+' Week '+benched.week):card(historicBench.label,historicBench.subject,historicBench.detail);
-      shame.innerHTML=loss+margin+narrow+bench+
+      const seasonLow=lowestSeason?card('Lowest season points scored',lowestSeason.teamName,money(lowestSeason.points)+' points • '+lowestSeason.year+' completed regular season'):'';
+      const weeklyLow=lowestWeek?card('Lowest weekly team score • provisional',lowestWeek.team,money(lowestWeek.points)+' points • '+lowestWeek.year+' Week '+lowestWeek.week+'; ESPN weekly audit incomplete'):'';
+      const losingRun=loseStreak?card('Longest losing streak • 2026 onward',loseStreak.team,loseStreak.games+' consecutive losses • '+loseStreak.year+' Weeks '+loseStreak.start+'–'+loseStreak.end):card('Longest losing streak • 2026 onward','Awaiting completed matchups','ESPN streak history is still being audited.');
+      shame.innerHTML=loss+margin+narrow+bench+seasonLow+weeklyLow+losingRun+
         (minWin?card('Lowest-scoring win • Sleeper era',minWin.team,money(minWin.points)+' points • '+formatEvent(minWin)):'');
       const trailing=shame.nextElementSibling;
-      if(trailing)trailing.innerHTML='ESPN historical audit still pending for lowest-scoring victory and complete top-ten shame lists. Sleeper results from 2026 onward recalculate whenever this page opens.';
+      if(trailing)trailing.textContent='The ESPN weekly audit is incomplete, so the weekly low is provisional and streaks cover 2026 onward. Sleeper results recalculate whenever this page opens.';
       let extras=document.getElementById('sleeperShameBoards');
       if(!extras){extras=document.createElement('div');extras.id='sleeperShameBoards';extras.className='history-record-grid';trailing?.after(extras)}
       extras.innerHTML='<div class="history-panel"><h3>Top 10 • Painful losses (2026 onward)</h3><ol>'+top(losses).map(e=>'<li><strong>'+esc(e.team)+' — '+money(e.points)+'</strong><small>'+esc(formatEvent(e))+'</small></li>').join('')+'</ol></div>'+
@@ -158,7 +187,7 @@
   }
   let started=false;
   function refresh(){
-   if(location.hash!=='#records'||started)return;
+   if((location.hash!=='#records'&&new URLSearchParams(location.search).get('page')!=='records')||started)return;
    started=true;
    start().catch(error=>{
     console.warn('Sleeper record sync unavailable; historical baseline remains visible.',error);

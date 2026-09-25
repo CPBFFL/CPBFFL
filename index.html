@@ -6075,6 +6075,7 @@ window.addEventListener("cpbffl-shared-data-ready", function(){
       suppliedBoard("Top 10 • Weekly team scores",data.weeklyTeamTop10||[],t=>t.team+' — '+money(t.points))+
       suppliedBoard("Top 10 • Individual starters (2018–2025)",data.individualStarterTop10||[],t=>t.player+' — '+money(t.points)+' • '+t.team)+
       '</div><p>Season totals come from ESPN standings. Weekly team and player lists were supplied by the commissioner; the complete ESPN weekly crosscheck is pending.</p>'+
+      '<h3>🏆 Hall of Fame</h3><div class="history-record-grid" id="hallOfFameRecordCards"><div class="history-panel"><h3>Longest winning streak • 2026 onward</h3><p>Loading completed matchups…</p></div></div>'+
       '<h3>💀 Hall of Shame</h3><div class="history-record-grid">'+
       (data.hallOfShame||[]).map(t=>'<div class="history-panel"><h3>'+esc(t.label)+'</h3><strong>'+esc(t.subject)+'</strong><p>'+esc(t.detail)+'</p></div>').join('')+
       '</div><p>Still being audited: lowest-scoring victory, top ten painful losses, and top ten bench disasters. Those records require complete weekly matchup and lineup data.</p>';
