@@ -2,6 +2,52 @@
 
 <html lang="en">
 <head>
+<!-- CPBFFL Google Analytics: page traffic and distinct weekly post views -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EXB3SHJZN5"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-EXB3SHJZN5');
+(function(){
+ let lastKey='',timer;
+ function track(){
+  const active=document.querySelector('.page-view.active');
+  if(!active)return;
+  const page=active.id;
+  let week='';
+  if(page==='predictions'||page==='icymi'){
+   const select=document.getElementById(page==='predictions'?'predictionWeek':'icymiWeek');
+   week=select?.value||'';
+   if(!week)return;
+   if(page==='predictions'&&/Waiting for Sleeper/.test(document.getElementById('predictionStatus')?.textContent||''))return;
+  }else if(page==='power-rankings'){
+   const article=Array.from(active.querySelectorAll('[id^="week-"]')).find(el=>el.getClientRects().length);
+   week=article?.id.match(/week-(\d+)/)?.[1]||'';
+   if(!week)return;
+  }
+  const key=page+(week?'_2026_week_'+week:'');
+  if(key===lastKey)return;
+  lastKey=key;
+  const title='CPBFFL — '+page.replace(/-/g,' ')+(week?' — 2026 Week '+week:'');
+  document.title=title;
+  gtag('event',(week?'post_view_':'section_view_')+key.replace(/-/g,'_'),{
+   content_type:page,season:2026,fantasy_week:week||undefined,
+   page_title:title,send_to:'G-EXB3SHJZN5'
+  });
+ }
+ function schedule(){clearTimeout(timer);timer=setTimeout(track,600);}
+ function start(){
+  new MutationObserver(schedule).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','hidden','style']});
+  document.addEventListener('change',schedule);
+  window.addEventListener('hashchange',schedule);
+  window.addEventListener('popstate',schedule);
+  schedule();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
+</script>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>CPBFFL League HQ</title>
