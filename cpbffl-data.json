@@ -1,5 +1,5 @@
 {
-  "version": 16,
+  "version": 17,
   "season": 2026,
   "icymi": {
     "1": {
@@ -212,6 +212,36 @@
         }
       },
       "publishedAt": "2026-10-27T14:55:33.860Z"
+    },
+    "8": {
+      "notes": "CPBFFL ICYMI — WEEK 8\n\nDEPTH DOESN’T MEAN SHIT WHEN YOU START THE WRONG PLAYERS\n\nWeek 8 was a great reminder that fantasy football makes absolutely no sense. Mike scored 175 points after spending half the season getting kicked in the dick by the schedule. Matt made two trades to create more depth and immediately proved that depth doesn’t mean shit when you start the wrong players. Jake finally got Lamar back, only for him to get hurt on the first fucking play. Meanwhile, Tony continues to sit comfortably at the top while the rest of us fight over the scraps.\n\nMike finished as the highest-scoring team with 175.06. Matt finished as the lowest-scoring team with a pathetic 71.49. Mike handed Paul the biggest ass-kicking of the week by 44.45 points, while Erik escaped John in the closest matchup by 9.42.\n\nHere’s the playoff field if the season ended today:\n1. Tony — East leader · 6–2 · 1,126.23 points\n2. John — West leader · 5–3 · 1,039.69 points\n3. Paul — Central leader · 5–3 · 986.60 points\n4. Steve · 5–3 · 983.14 points\n5. Sam · 5–3 · 896.96 points\n6. Mike — points wildcard · 4–4 · 1,096.52 points\n\nMike owns the sixth-seed points wildcard despite sitting at 4–4. Matt is also 4–4 with 994.88 points, which means those stupid lineup decisions are starting to matter.",
+      "games": {
+        "Paul Deutsch|Michael Clark": {
+          "title": "GAME OF THE WEEK: FANNIN THE FLAMES",
+          "body": "Mike Clark 175.06 – Paul Deutsch 130.61\n\nPaul leads the historical series 6–5 | Mike: 4–4 · Paul: 5–3\n\nThis was supposed to be the Game of the Week. Instead, Mike finally found somebody else willing to become the victim.\n\nIt started Thursday when Chuba Hubbard and Tetairoa McMillan put Mike ahead while Tucker Kraft kept Paul within reach. Then Sunday arrived and Mike’s entire roster apparently decided it was tired of hearing about his points-against. Josh Allen scored 26, Tee Higgins exploded for 37, Harold Fannin added 23 and Dalton Kincaid chipped in another 18. Washington’s defense finished the job with 18.\n\nPaul actually scored 130 points despite getting two total points from Jacoby Brissett and zeros from Zay Flowers and Chris Godwin. Flowers’ zero was horrible luck after Lamar Jackson went down on Baltimore’s first play and Tyler Huntley followed him into the medical tent. Paul still received 31 from Ja’Marr Chase, 30 from Bhayshul Tuten and 25 from Pittsburgh’s defense. Against almost anybody else, that’s enough. Against Mike this week, it was just something nice to put on the obituary.\n\nMike improves to 4–4 and currently owns the points wildcard. After everything his schedule has done to him, he finally got to be the asshole ruining somebody else’s week."
+        },
+        "Shawn Smutak|Steve Cegelka": {
+          "title": "POLLARD OPPOSITES",
+          "body": "Steve Cegelka 146.56 – Shawn Smutak 103.18\n\nSteve leads the historical series 10–5 | Steve: 5–3 · Shawn: 3–5\n\nJacksonville’s defense scored 24 and briefly gave me hope that this might become a game. Then the rest of my roster showed up and reminded me why hope is fucking stupid.\n\nDobbins and Hampton combined for six points, Tyler Warren scored five, and Daniels gave me only 14. There wasn’t some magical bench combination waiting to save me either. The lineup simply wasn’t good enough.\n\nSteve didn’t even need to make the right quarterback decision. Bryce Young scored eight while Bo Nix had 19 on the bench, but Tony Pollard dropped 31, Bucky Irving added 23 and Steve was already ahead before Monday night. Then JSN added another 24 just to be an asshole.\n\nSteve moves to 5–3 and stays firmly in the playoff picture. I drop to 3–5 and now need wins instead of another speech about how the team is better than its record."
+        },
+        "Brian Corrigan|Reid Masters": {
+          "title": "BOWERS TO THE PEOPLE",
+          "body": "Brian Corrigan 123.50 – Reid Masters 102.15\n\nReid leads the historical series 5–2 | Brian: 4–4 · Reid: 3–5\n\nBrian’s trade paid off immediately. Brock Bowers arrived and scored 28 points, Josh Jacobs added 23 and T.J. Hockenson gave him another 15. Brian started three tight ends because apparently roster construction is optional when they all score.\n\nReid got 20 from Matthew Golden and another 20 from Jonah Coleman, but the rest of the lineup never created enough momentum. Bijan scored seven, Pickens scored six and Kansas City’s defense managed one. Jordan Love over Lawrence, Downs over Pickens and Dowdle over Jeremiyah Love would have made it much closer, but even all three changes still wouldn’t have completed the comeback.\n\nBrian improves to 4–4 and has now won two straight after disappearing for half the season. Reid falls to 3–5 and is quickly reaching the part of the year where “there’s still time” becomes complete bullshit."
+        },
+        "John DeBrouse|Erik Mannarino": {
+          "title": "BURROWED ALIVE",
+          "body": "Erik Mannarino 130.23 – John DeBrouse 120.81\n\nJohn leads the historical series 7–3 | John: 5–3 · Erik: 4–4\n\nJohn started Thursday with Christian Watson and Jalen Coker combining for 26 points. It looked like first place might actually survive longer than one fucking week.\n\nThen Joe Burrow threw 41 points directly onto John’s chest. Trey McBride added 20, the Rams’ defense scored 15 and Erik carried a 24-point lead into Monday night.\n\nD’Andre Swift tried to drag John back into the matchup with 27 points, but Rome Odunze scored 12 for Erik and killed the comeback. John got within 9.42, making this the closest game of the week, but close still counts as a loss.\n\nErik gets back to 4–4 and stops the bleeding. John falls to 5–3 and loses first place almost immediately after reaching it. Congratulations on the brief visit."
+        },
+        "Matt Rennert|Sam Young": {
+          "title": "THE BURDEN FALLS ON MATT",
+          "body": "Sam Young 109.20 – Matt Rennert 71.49\n\nSam leads the historical series 2–1 | Sam: 5–3 · Matt: 4–4\n\nMatt made two good trades and created one of the deepest rosters in the league. Then he immediately demonstrated the problem with owning that much depth: you still have to start the correct fucking players.\n\nGibbs scored 25 and Rashee Rice added 18. The other seven starters combined for 27 points. Goff scored eight, Mason scored two, Omar Cooper scored zero and Seattle’s defense finished with 0.35.\n\nMeanwhile, Emmett Johnson scored 28 and DeMario Douglas scored 17 on Matt’s bench. Replacing Mason and Cooper with those two would have pushed Matt to 115.39 and won the week. This wasn’t one impossible breakout buried behind obvious starters. Douglas had a clearer opportunity after A.J. Brown was ruled out, and Matt had spent the entire week sorting through his new depth. He picked wrong.\n\nSam left Tyler Allgeier’s ridiculous 42-point game on his bench, but nobody was confidently predicting that explosion. It didn’t matter anyway. Burden and Loveland combined for 30 Monday-night points while Matt’s Seattle defense did absolutely nothing.\n\nSam has quietly won four straight and moves to 5–3. Matt falls to 4–4, and the guy who started the season looking unbeatable is now outside the current playoff field."
+        },
+        "Jake Stacy|Tony Yokiel": {
+          "title": "KIRK AND DESTROY",
+          "body": "Tony Yokiel 146.88 – Jake Stacy 93.70\n\nTony leads the historical series 10–9 | Tony: 6–2 · Jake: 0–8\n\nJake finally got Lamar Jackson back and lost him on Baltimore’s first offensive play. That isn’t a bad lineup decision. That is fantasy football kicking a winless team directly in the balls for entertainment. Jackson injured his throwing thumb, required surgery and landed on injured reserve.\n\nPatrick Mahomes scored 28 on Jake’s bench, but even making that switch wouldn’t have come close to saving him. Tony received 27 from Kirk Cousins, 26 from Michael Wilson, 25 from Puka and 21 from Tampa Bay’s defense. He scored 146 despite getting zeros from Ferguson and Tre Tucker.\n\nTony improves to a league-best 6–2 and remains the top seed. Jake falls to 0–8. At this point, the first-win celebration is less of a weekly possibility and more of a long-term infrastructure project."
+        }
+      },
+      "publishedAt": "2026-11-04T03:32:11.212Z"
     }
   },
   "predictions": {
@@ -316,5 +346,5 @@
       "publishedAt": "2026-10-30T15:19:46.459Z"
     }
   },
-  "publishedAt": "2026-10-30T15:19:46.459Z"
+  "publishedAt": "2026-11-04T03:32:11.212Z"
 }
