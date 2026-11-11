@@ -1,5 +1,5 @@
 {
-  "version": 19,
+  "version": 20,
   "season": 2026,
   "icymi": {
     "1": {
@@ -242,6 +242,36 @@
         }
       },
       "publishedAt": "2026-11-04T03:34:01.664Z"
+    },
+    "9": {
+      "notes": "WEEK 9 ICYMI — CAN YOU DIGGS IT?\n\nShawn and Matt shook things up with Stefon Diggs heading to Matt for A.J. Brown and Quinshon Judkins. Matt immediately snapped his three-game losing streak. Shawn immediately got his ass kicked for the third straight week. Diggs scored 8, Judkins scored 5, and Brown watched from the bench with zero. Plenty of time to debate the trade, but the first weekend mostly confirmed that neither owner purchased a miracle.\n\nFIVE WEEKS LEFT. START CHECKING YOUR DAMN BENCH.\n\nTony sits at 7–2, John and Steve are 6–3, and Mike, Paul, Matt and Sam are all 5–4. Erik, Reid and Brian are one game behind that group at 4–5. Shawn is 3–6 and rapidly running out of weeks to call this a temporary problem. Jake is still searching for win number one.\n\nSam and Erik both had winning substitutions available this week. With the standings this crowded, those aren’t harmless lineup mistakes. Those are the games you’ll be thinking about when somebody else gets your playoff spot.",
+      "games": {
+        "Steve Cegelka|Sam Young": {
+          "title": "GAME OF THE WEEK: THE BUCK STOPS HERE",
+          "body": "Steve 119.81 – Sam 115.36\n\nSteve escaped by 4.45, and Sam gets to spend the week staring at a bench that had multiple ways to win this damn matchup. KC Concepcion Jr. scored 21 while Ladd McConkey delivered a beautiful, perfectly round zero. Even Antonio Williams and his 5 would have been enough in that spot. Prefer a running back mistake? Blake Corum scored 11 on the bench while Tyler Allgeier managed 6. Make that swap and Sam wins 120.56–119.81.\n\nLuther Burden’s 23, James Cook’s 17 and Parker Washington’s 17 gave Sam enough production to survive. He just failed to put the rest of it in the lineup. Steve rode Bucky Irving’s 28, Travis Kelce’s 17 and a 23-point performance from the 49ers defense to his second straight win and a 6–3 record. Sam falls to 5–4 with a loss that belongs squarely in the “you did this to yourself” collection."
+        },
+        "Tony Yokiel|Brian Corrigan": {
+          "title": "STROUD AND CLEAR",
+          "body": "Tony 180.86 – Brian 83.75\n\nTony’s team name is The Bye Week, but Brian was the one who took the weekend off. C.J. Stroud scored 42, Kenneth Walker scored 37 and Puka Nacua added 35. Those three alone outscored Brian’s entire starting lineup. That’s usually where the recap can end and the police report can begin.\n\nBrian got 22 from Brock Bowers and 20 from Dak Prescott, then watched Josh Jacobs contribute less than a point. Starting three tight ends apparently wasn’t the secret formula for keeping up with a team dropping 180. Tony won by 97.11, posted the highest score of the week and moved to 7–2 with his second straight victory. Brian’s two-game winning streak ended with his team getting launched into the fucking sun."
+        },
+        "John DeBrouse|Shawn Smutak": {
+          "title": "LAMB TO THE SLAUGHTER",
+          "body": "John 137.61 – Shawn 83.46\n\nCeeDee Lamb scored 34, Christian Watson added 30, and Buffalo’s defense chipped in 23. Shawn brought an entire roster and still barely outscored those three. John even survived single-digit performances from both starting running backs because his receivers handled the violence.\n\nChris Olave led Shawn with 16. Justin Jefferson scored 8, Jameson Williams scored 5, and the new acquisition Judkins added another 5. Before anyone starts screaming about the bench, there wasn’t a hidden rescue package sitting there. This was a full organizational failure. John rebounds from his Week 8 loss to reach 6–3. Shawn drops to 3–6 after three straight losses, and the trade department might need to acquire a working offense next."
+        },
+        "Reid Masters|Paul Deutsch": {
+          "title": "SILENCE IS GOLDEN",
+          "body": "Reid 142.28 – Paul 123.08\n\nMatthew Golden delivered 32, Bijan Robinson added 27, and Jonah Coleman scored 18 as Reid finally put an end to a two-game skid. The Injuryapolis Colts produced the second-highest score of the week, which is a hell of a way to remind everyone that they’re still hanging around.\n\nPaul got 32 from Ja’Marr Chase and 25 from Brock Purdy, but Tucker Kraft’s 1 and Zay Flowers’ 5 left too much ground to cover. There were a few extra points available on the bench, but no single substitution erased this 19.20-point loss. Sometimes you make a bad decision. Sometimes the other guy just scores 142. Paul falls to 5–4 with his second straight loss, while Reid climbs to 4–5 and makes the crowd chasing the playoff spots even more annoying."
+        },
+        "Michael Clark|Erik Mannarino": {
+          "title": "BURROWED TIME",
+          "body": "Mike 119.51 – Erik 111.79\n\nErik got 30 from Joe Burrow and still lost a matchup in which Josh Allen scored 11. That takes some cooperation from the rest of the roster. Jonathan Taylor and Saquon Barkley combined for 17, leaving Burrow to drag the offense around like a couch up three flights of stairs.\n\nAnd Erik had the escape route sitting right there. Quentin Johnston scored 16 on the bench while Emeka Egbuka scored 6 in the lineup. That swap wins it 121.19–119.51. Pat Bryant over Egbuka also gets the job done, and Johnston could have replaced Austin Ekeler in a flex spot, too. Pick your preferred flavor of regret. Mike got 22 from Christian McCaffrey and 20 from Tee Higgins, survived Allen’s quiet week and won his second straight to reach 5–4. Erik’s two-game winning streak ends at 4–5 with a very winnable game left on the bench."
+        },
+        "Matt Rennert|Jake Stacy": {
+          "title": "DIGGS OUT OF A HOLE",
+          "body": "Matt 90.65 – Jake 75.93\n\nMatt finally stopped the bleeding, although beating Jake with 90 points feels a little like passing your driver’s test in an empty parking lot. Jared Goff scored 4. Mike Gesicki scored 3. Seattle’s defense led the team with 19. It wasn’t pretty, but after three straight losses, Matt will take the win and decline all further questions.\n\nJake got 23 from Javonte Williams and very little help from everybody else. Courtland Sutton’s 15 sat on the bench while Devaughn Vele scored 3 and Malik Washington scored 4. Either swap makes it closer, but neither alone wins it. Jake needed more than one repair, which has become the unofficial slogan of his season. Matt moves to 5–4. Jake moves to 0–9. At this point, the first win deserves a parade permit."
+        }
+      },
+      "publishedAt": "2026-11-11T15:33:52.661Z"
     }
   },
   "predictions": {
@@ -359,5 +389,5 @@
       "publishedAt": "2026-11-05T14:06:02.605Z"
     }
   },
-  "publishedAt": "2026-11-05T14:06:02.605Z"
+  "publishedAt": "2026-11-11T15:33:52.661Z"
 }
